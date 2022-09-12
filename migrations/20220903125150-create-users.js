@@ -25,6 +25,9 @@ module.exports = {
       photo: {
         type: Sequelize.STRING,
       },
+      refresh_token: {
+        type: Sequelize.TEXT,
+      },
       roleId: {
         type: Sequelize.STRING,
         references: {

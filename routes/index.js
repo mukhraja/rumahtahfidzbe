@@ -5,6 +5,7 @@ const guruRoute = require("./guruRoute");
 const pondokRoute = require("./pondokRoute");
 const alquranRoute = require("./alquranRoute");
 const surahpendekRoute = require("./surahpendekRoute");
+const roleRoute = require("./roleRoute");
 const route = require("express").Router();
 
 route.use("/user", userRoute);
@@ -14,5 +15,6 @@ route.use("/guru", guruRoute);
 route.use("/pondok", pondokRoute);
 route.use("/alquran", alquranRoute);
 route.use("/surahpendek", surahpendekRoute);
+route.use("/role", roleRoute);
 
 module.exports = route;
