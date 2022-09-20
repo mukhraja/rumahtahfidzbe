@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Santri.hasMany(models.Iqro);
-      Santri.hasMany(models.Surahpendek);
-      Santri.hasMany(models.Alquran);
+      Santri.hasMany(models.Iqrosantri);
+      Santri.hasMany(models.Surahpendeksantri);
+      Santri.hasMany(models.Alquransantri);
       Santri.belongsTo(models.Pondok, { foreignKey: "pondokId" });
       Santri.belongsToMany(models.Users, { through: models.UserSantri });
     }

@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Iqro extends Model {
+  class Iqroguru extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Iqro.belongsTo(models.Santri, { foreignKey: "santriId" });
+      Iqroguru.belongsTo(models.Santri, { foreignKey: "guruId" });
     }
   }
-  Iqro.init(
+  Iqroguru.init(
     {
       id: {
         primaryKey: true,
@@ -21,12 +21,12 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       halaman: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
-      santriId: DataTypes.STRING,
+      guruId: DataTypes.STRING,
     },
     {
       sequelize,
-      modelName: "Iqro",
+      modelName: "Iqroguru",
     }
   );
-  return Iqro;
+  return Iqroguru;
 };

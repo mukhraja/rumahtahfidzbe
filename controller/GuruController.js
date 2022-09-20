@@ -13,6 +13,7 @@ class GuruController {
       });
       res.status(200).json({ data });
     } catch (error) {
+      console.log(error);
       return res.status(404).json({ data: "no data found" });
     }
   }
@@ -20,12 +21,9 @@ class GuruController {
   static async createGuru(req, res) {
     try {
       const id = uuid.v4();
-      const { name, nis, email, datebirth, gender, telephone, education, address, photo, pondokId } = req.body;
-
-      const payload = {
-        id,
+      const {
         name,
-        nis,
+        niu,
         email,
         datebirth,
         gender,
@@ -33,23 +31,45 @@ class GuruController {
         education,
         address,
         photo,
+        ayah,
+        ibu,
+        mulai_masuk,
+        mulai_vakum,
+        pondokId,
+      } = req.body;
+
+      const payload = {
+        id,
+        name,
+        niu,
+        email,
+        datebirth,
+        gender,
+        telephone,
+        education,
+        address,
+        photo,
+        ayah,
+        ibu,
+        mulai_masuk,
+        mulai_vakum,
         pondokId,
       };
 
       const newData = await Guru.create(payload);
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(404).json({ data: "Pastikan data terisi dengan benar" });
+      return res
+        .status(404)
+        .json({ data: "Pastikan data terisi dengan benar" });
     }
   }
 
   static async updateGuru(req, res) {
     try {
-      const { name, nis, email, datebirth, gender, telephone, education, address, photo, pondokId } = req.body;
-
-      const payload = {
+      const {
         name,
-        nis,
+        niu,
         email,
         datebirth,
         gender,
@@ -57,10 +77,34 @@ class GuruController {
         education,
         address,
         photo,
+        ayah,
+        ibu,
+        mulai_masuk,
+        mulai_vakum,
+        pondokId,
+      } = req.body;
+
+      const payload = {
+        name,
+        niu,
+        email,
+        datebirth,
+        gender,
+        telephone,
+        education,
+        address,
+        photo,
+        ayah,
+        ibu,
+        mulai_masuk,
+        mulai_vakum,
         pondokId,
       };
 
-      const newData = await Guru.update(payload, { returning: true, where: { id: req.params.id } });
+      const newData = await Guru.update(payload, {
+        returning: true,
+        where: { id: req.params.id },
+      });
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });

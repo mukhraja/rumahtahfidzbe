@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Guru.hasMany(models.Iqroguru);
+      Guru.hasMany(models.Surahpendekguru);
+      Guru.hasMany(models.Alquranguru);
       Guru.belongsTo(models.Pondok, { foreignKey: "pondokId" });
     }
   }
@@ -19,13 +22,17 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       name: DataTypes.STRING,
-      nis: DataTypes.STRING,
+      niu: DataTypes.STRING,
       email: DataTypes.STRING,
       datebirth: DataTypes.DATE,
       gender: DataTypes.STRING,
       telephone: DataTypes.STRING,
       education: DataTypes.STRING,
       address: DataTypes.STRING,
+      ayah: DataTypes.STRING,
+      ibu: DataTypes.STRING,
+      mulai_masuk: DataTypes.STRING,
+      mulai_vakum: DataTypes.STRING,
       photo: DataTypes.STRING,
       pondokId: DataTypes.STRING,
     },

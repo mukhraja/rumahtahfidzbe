@@ -1,25 +1,28 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Iqros", {
+    await queryInterface.createTable("Alqurangurus", {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.STRING,
       },
-      name: {
+      juz: {
         type: Sequelize.STRING,
       },
-      halaman: {
+      surah: {
+        type: Sequelize.STRING,
+      },
+      ayat: {
         type: Sequelize.STRING,
       },
       tgl_selesai: {
         type: Sequelize.DATE,
       },
-      santriId: {
+      guruId: {
         type: Sequelize.STRING,
         references: {
-          model: "Santris",
+          model: "Gurus",
           key: "id",
         },
         onUpdate: "cascade",
@@ -36,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Iqros");
+    await queryInterface.dropTable("Alqurangurus");
   },
 };

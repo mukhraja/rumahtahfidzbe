@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Pondoks", {
+    await queryInterface.createTable("Iqrosantris", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -10,20 +10,20 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      nit: {
+      halaman: {
         type: Sequelize.STRING,
       },
-      address: {
-        type: Sequelize.STRING,
+      tgl_selesai: {
+        type: Sequelize.DATE,
       },
-      telephone: {
+      santriId: {
         type: Sequelize.STRING,
-      },
-      chief: {
-        type: Sequelize.STRING,
-      },
-      photo: {
-        type: Sequelize.STRING,
+        references: {
+          model: "Santris",
+          key: "id",
+        },
+        onUpdate: "cascade",
+        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Pondoks");
+    await queryInterface.dropTable("Iqrosantris");
   },
 };

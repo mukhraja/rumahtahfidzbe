@@ -8,13 +8,13 @@ const surahpendekRoute = require("./surahpendekRoute");
 const roleRoute = require("./roleRoute");
 const route = require("express").Router();
 
-route.use("/user", userRoute);
-route.use("/iqro", iqroRoute);
-route.use("/santri", santriRoute);
-route.use("/guru", guruRoute);
-route.use("/pondok", pondokRoute);
-route.use("/alquran", alquranRoute);
-route.use("/surahpendek", surahpendekRoute);
-route.use("/role", roleRoute);
+route.use("/v1/api/user", userRoute);
+route.use("/v1/api/iqro", iqroRoute);
+route.use("/v1/api/santri", santriRoute);
+route.use("/v1/api/guru", guruRoute);
+route.use("/v1/api/pondok", pondokRoute);
+route.use("/v1/api/alquran", alquranRoute);
+route.use("/v1/api/surahpendek", surahpendekRoute);
+route.use("/v1/api/role", roleRoute);
 
 module.exports = route;

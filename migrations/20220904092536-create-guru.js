@@ -10,7 +10,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      nis: {
+      niu: {
         type: Sequelize.STRING,
       },
       email: {
@@ -29,6 +29,18 @@ module.exports = {
         type: Sequelize.STRING,
       },
       address: {
+        type: Sequelize.STRING,
+      },
+      ayah: {
+        type: Sequelize.STRING,
+      },
+      ibu: {
+        type: Sequelize.STRING,
+      },
+      mulai_masuk: {
+        type: Sequelize.STRING,
+      },
+      mulai_vakum: {
         type: Sequelize.STRING,
       },
       photo: {

@@ -18,4 +18,4 @@ app.use(express.json());
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}/v1/api`));
