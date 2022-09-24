@@ -14,7 +14,9 @@ class PondokController {
 
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(400).json({ data: "Data tidak ditemukan" });
+      return res
+        .status(400)
+        .json({ data: "Data tidak ditemukan mengenai pondok" });
     }
   }
 
