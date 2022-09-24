@@ -46,7 +46,10 @@ class SurahPendekController {
         santriId,
       };
 
-      const newData = await Surahpendek.update(payload, { returning: true, where: { id: req.params.id } });
+      const newData = await Surahpendek.update(payload, {
+        returning: true,
+        where: { id: req.params.id },
+      });
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });
