@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       halaman: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
+      ket: DataTypes.STRING,
       guruId: DataTypes.STRING,
     },
     {

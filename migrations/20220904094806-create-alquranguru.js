@@ -19,6 +19,9 @@ module.exports = {
       tgl_selesai: {
         type: Sequelize.DATE,
       },
+      ket: {
+        type: Sequelize.STRING,
+      },
       guruId: {
         type: Sequelize.STRING,
         references: {

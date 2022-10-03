@@ -14,12 +14,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Surahpendeksantri.init(
     {
-      id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-      },
       name: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
+      ket: DataTypes.STRING,
       santriId: DataTypes.STRING,
     },
     {

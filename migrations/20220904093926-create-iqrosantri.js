@@ -4,8 +4,9 @@ module.exports = {
     await queryInterface.createTable("Iqrosantris", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
@@ -15,6 +16,9 @@ module.exports = {
       },
       tgl_selesai: {
         type: Sequelize.DATE,
+      },
+      ket: {
+        type: Sequelize.STRING,
       },
       santriId: {
         type: Sequelize.STRING,

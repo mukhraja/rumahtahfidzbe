@@ -24,7 +24,8 @@ class UserController {
   static async createUser(req, res) {
     try {
       const id = uuid.v4();
-      const { name, password, email, address, telephone, photo, roleId } = req.body;
+      const { name, password, email, address, telephone, photo, roleId } =
+        req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
 
@@ -48,7 +49,8 @@ class UserController {
 
   static async updateUser(req, res) {
     try {
-      const { name, password, email, address, telephone, photo, roleId } = req.body;
+      const { name, password, email, address, telephone, photo, roleId } =
+        req.body;
 
       const payload = {
         name,
@@ -60,7 +62,10 @@ class UserController {
         roleId,
       };
 
-      const newData = await Users.update(payload, { returning: true, where: { id: req.params.id } });
+      const newData = await Users.update(payload, {
+        returning: true,
+        where: { id: req.params.id },
+      });
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });
@@ -91,8 +96,16 @@ class UserController {
         const name = user[0].name;
         const email = user[0].email;
         const role = user[0].roleId;
-        const accessToken = jwt.sign({ userId, name, email, role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "15s" });
-        const refresh_token = jwt.sign({ userId, name, email, role }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "1d" });
+        const accessToken = jwt.sign(
+          { userId, name, email, role },
+          process.env.ACCESS_TOKEN_SECRET,
+          { expiresIn: "1d" }
+        );
+        const refresh_token = jwt.sign(
+          { userId, name, email, role },
+          process.env.REFRESH_TOKEN_SECRET,
+          { expiresIn: "1d" }
+        );
 
         const cek = await Users.update(
           { refresh_token: refresh_token },
@@ -106,7 +119,9 @@ class UserController {
           httpOnly: true,
           maxAge: 24 * 60 * 60 * 1000,
         });
-        res.status(200).json({ data: accessToken });
+        res
+          .status(200)
+          .json({ profile: { name, email, role, userId }, token: accessToken });
       } else {
         next(error);
       }

@@ -14,13 +14,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Iqrosantri.init(
     {
-      id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-      },
       name: DataTypes.STRING,
       halaman: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
+      ket: DataTypes.STRING,
       santriId: DataTypes.STRING,
     },
     {

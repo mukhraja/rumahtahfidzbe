@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       surah: DataTypes.STRING,
       ayat: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
+      ket: DataTypes.STRING,
       guruId: DataTypes.STRING,
     },
     {

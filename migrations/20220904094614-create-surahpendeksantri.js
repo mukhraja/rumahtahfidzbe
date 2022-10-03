@@ -4,14 +4,18 @@ module.exports = {
     await queryInterface.createTable("Surahpendeksantris", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
       },
       tgl_selesai: {
         type: Sequelize.DATE,
+      },
+      ket: {
+        type: Sequelize.STRING,
       },
       santriId: {
         type: Sequelize.STRING,

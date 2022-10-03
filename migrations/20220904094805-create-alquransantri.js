@@ -4,8 +4,9 @@ module.exports = {
     await queryInterface.createTable("Alquransantris", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       juz: {
         type: Sequelize.STRING,
@@ -16,8 +17,14 @@ module.exports = {
       ayat: {
         type: Sequelize.STRING,
       },
+      halaman: {
+        type: Sequelize.STRING,
+      },
       tgl_selesai: {
         type: Sequelize.DATE,
+      },
+      ket: {
+        type: Sequelize.STRING,
       },
       santriId: {
         type: Sequelize.STRING,
