@@ -17,15 +17,15 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
   },
   production: {
-    username: "b1b69cdc358267",
-    password: "f567db80",
-    database: "heroku_2a20df68f72d873",
-    host: "us-cdbr-east-06.cleardb.net",
+    username: "b3119c5152da65",
+    password: "0b4bd803",
+    database: "heroku_c55e7e194b32963",
+    host: "eu-cdbr-west-03.cleardb.net",
     dialect: "mysql",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
-      },
-    },
+    // dialectOptions: {
+    //   ssl: {
+    //     rejectUnauthorized: false,
+    //   },
+    // },
   },
 };
