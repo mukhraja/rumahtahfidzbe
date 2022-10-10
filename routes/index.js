@@ -6,6 +6,7 @@ const pondokRoute = require("./pondokRoute");
 const alquranRoute = require("./alquranRoute");
 const surahpendekRoute = require("./surahpendekRoute");
 const roleRoute = require("./roleRoute");
+const databaseRoute = require("./databaseRoute");
 const imageRoute = require("./imageRoute");
 const route = require("express").Router();
 
@@ -16,6 +17,7 @@ route.use("/v1/api/guru", guruRoute);
 route.use("/v1/api/pondok", pondokRoute);
 route.use("/v1/api/alquran", alquranRoute);
 route.use("/v1/api/surahpendek", surahpendekRoute);
+route.use("/v1/api/database", databaseRoute);
 route.use("/v1/api/role", roleRoute);
 
 route.use("/v1/api/gambar", imageRoute);

@@ -1,9 +1,12 @@
 const { GuruController } = require("../controller");
 const route = require("express").Router();
+const { uploadMultipleFile } = require("../middleware/uploadFile");
 
 route.get("/", GuruController.getGurus);
-route.post("/", GuruController.createGuru);
-route.put("/:id", GuruController.updateGuru);
+route.get("/:id", GuruController.getguruid);
+route.post("/", uploadMultipleFile, GuruController.createGuru);
+route.put("/:id", GuruController.updateNoFileGuru);
+route.put("/data/:id", uploadMultipleFile, GuruController.updateGuru);
 route.delete("/:id", GuruController.deleteGuru);
 
 module.exports = route;

@@ -17,7 +17,7 @@ module.exports = {
         {
           id: 1,
           juz: "12",
-          surah: "Al - maidah",
+          surah: "Al maidah",
           halaman: "14",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -26,7 +26,7 @@ module.exports = {
         {
           id: 2,
           juz: "2",
-          surah: "Al - Baqarah",
+          surah: "Al Baqarah",
           halaman: "20",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -35,7 +35,7 @@ module.exports = {
         {
           id: 3,
           juz: "20",
-          surah: "An - Nasr",
+          surah: "An Nasr",
           halaman: "20",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -44,7 +44,7 @@ module.exports = {
         {
           id: 4,
           juz: "18",
-          surah: "An - Naba",
+          surah: "An Naba",
           halaman: "22",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",

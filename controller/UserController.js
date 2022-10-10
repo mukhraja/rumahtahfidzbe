@@ -1,7 +1,6 @@
 const { Users } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
-const users = require("../models/users");
 const salt = bcrypt.genSaltSync(10);
 const jwt = require("jsonwebtoken");
 
@@ -21,46 +20,116 @@ class UserController {
     }
   }
 
+  static async getUser(req, res) {
+    try {
+      const { id } = req.params;
+
+      const newData = await Users.findOne({
+        where: { id },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createUser(req, res) {
     try {
-      const id = uuid.v4();
-      const { name, password, email, address, telephone, photo, roleId } =
-        req.body;
+      const { files, fields } = req.fileAttrb;
+      const payload = {
+        id: uuid.v4(),
+        name: fields[0].value,
+        email: fields[1].value,
+        password: fields[2].value,
+        telephone: fields[3].value,
+        address: fields[4].value,
+        datebirth: fields[5].value,
+        age: fields[6].value,
+        gender: fields[7].value,
+        parent: fields[8].value,
+        roleId: fields[9].value,
+        photo: files[0].file.newFilename,
+      };
+
+      const newData = await Users.create(payload);
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
+  static async createNoFileUser(req, res) {
+    try {
+      const {
+        name,
+        email,
+        password,
+        telephone,
+        address,
+        datebirth,
+        gender,
+        age,
+        parent,
+        roleId,
+      } = req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
 
       const payload = {
-        id,
+        id: uuid.v4(),
         name,
-        password: hashPassword,
         email,
-        address,
+        password: hashPassword,
         telephone,
-        photo,
+        address,
+        datebirth,
+        age,
+        gender,
+        parent,
         roleId,
       };
 
-      const newuser = await Users.create(payload);
-      res.status(200).json({ data: newuser });
+      const newData = await Users.create(payload);
+      res.status(200).json({ data: newData });
     } catch (error) {
-      res.status(404).json({ data: error.message });
+      return res.status(404).json({ data: error.message });
     }
   }
 
-  static async updateUser(req, res) {
+  static async updateNoFileUser(req, res) {
+    console.log("sampai disini");
     try {
-      const { name, password, email, address, telephone, photo, roleId } =
-        req.body;
+      const {
+        name,
+        email,
+        password,
+        telephone,
+        address,
+        datebirth,
+        gender,
+        age,
+        parent,
+        roleId,
+      } = req.body;
+
+      const hashPassword = bcrypt.hashSync(password, salt);
 
       const payload = {
         name,
-        password,
         email,
-        address,
+        password: hashPassword,
         telephone,
-        photo,
+        address,
+        datebirth,
+        gender,
+        age,
+        parent,
         roleId,
       };
+
+      console.log(payload);
 
       const newData = await Users.update(payload, {
         returning: true,
@@ -68,7 +137,38 @@ class UserController {
       });
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(404).json({ data: "Pastikan Semua data benar" });
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
+  static async updateUser(req, res) {
+    try {
+      console.log("di update user");
+      const { files, fields } = req.fileAttrb;
+
+      const hashPassword = bcrypt.hashSync(fields[3].value, salt);
+
+      const payload = {
+        name: fields[1].value,
+        email: fields[2].value,
+        password: hashPassword,
+        telephone: fields[4].value,
+        address: fields[5].value,
+        datebirth: fields[6].value,
+        age: fields[8].value,
+        gender: fields[7].value,
+        parent: fields[9].value,
+        roleId: fields[10].value,
+        photo: files[0].file.newFilename,
+      };
+
+      const newData = await Users.update(payload, {
+        where: { id: req.params.id },
+        returning: true,
+      });
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
     }
   }
 
