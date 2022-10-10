@@ -17,10 +17,10 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
   },
   production: {
-    username: "b3119c5152da65",
-    password: "0b4bd803",
-    database: "heroku_c55e7e194b32963",
-    host: "eu-cdbr-west-03.cleardb.net",
+    username: "bc715b7cf6238b",
+    password: "32efd0bc",
+    database: "heroku_07ded5028e0e6ed",
+    host: "us-cdbr-east-06.cleardb.net",
     dialect: "mysql",
     // dialectOptions: {
     //   ssl: {
