@@ -20,7 +20,7 @@ module.exports = {
     username: "b1b69cdc358267",
     password: "f567db80",
     database: "heroku_2a20df68f72d873",
-    host: "b1b69cdc358267:f567db80@us-cdbr-east-06.cleardb.net",
+    host: "us-cdbr-east-06.cleardb.net",
     dialect: "mysql",
     dialectOptions: {
       ssl: {
