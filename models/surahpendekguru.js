@@ -9,15 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Surahpendekguru.belongsTo(models.Santri, { foreignKey: "guruId" });
+      Surahpendekguru.belongsTo(models.Guru, { foreignKey: "guruId" });
     }
   }
   Surahpendekguru.init(
     {
-      id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-      },
       name: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
       ket: DataTypes.STRING,

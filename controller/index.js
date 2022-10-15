@@ -8,6 +8,9 @@ const SurahPendekController = require("./SurahPendekController");
 const RoleController = require("./RoleController");
 const DatabaseController = require("./DatabaseController");
 const refreshToken = require("./refreshToken");
+const IqroGuruController = require("./IqroGuruController");
+const SurahPendekGuruController = require("./SurahPendekGuruController");
+const AlquranGuruController = require("./AlquranGuruController");
 
 module.exports = {
   UserController,
@@ -20,4 +23,7 @@ module.exports = {
   RoleController,
   refreshToken,
   DatabaseController,
+  IqroGuruController,
+  SurahPendekGuruController,
+  AlquranGuruController,
 };

@@ -9,15 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Iqroguru.belongsTo(models.Santri, { foreignKey: "guruId" });
+      Iqroguru.belongsTo(models.Guru, { foreignKey: "guruId" });
     }
   }
   Iqroguru.init(
     {
-      id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-      },
       name: DataTypes.STRING,
       halaman: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,

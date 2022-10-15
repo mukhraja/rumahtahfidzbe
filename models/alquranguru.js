@@ -14,13 +14,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Alquranguru.init(
     {
-      id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-      },
       juz: DataTypes.STRING,
       surah: DataTypes.STRING,
       ayat: DataTypes.STRING,
+      halaman: DataTypes.STRING,
       tgl_selesai: DataTypes.DATE,
       ket: DataTypes.STRING,
       guruId: DataTypes.STRING,

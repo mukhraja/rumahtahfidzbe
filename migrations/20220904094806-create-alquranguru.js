@@ -4,8 +4,9 @@ module.exports = {
     await queryInterface.createTable("Alqurangurus", {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       juz: {
         type: Sequelize.STRING,
@@ -14,6 +15,9 @@ module.exports = {
         type: Sequelize.STRING,
       },
       ayat: {
+        type: Sequelize.STRING,
+      },
+      halaman: {
         type: Sequelize.STRING,
       },
       tgl_selesai: {
