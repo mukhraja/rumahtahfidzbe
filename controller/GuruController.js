@@ -14,7 +14,7 @@ class GuruController {
       res.status(200).json({ data });
     } catch (error) {
       console.log(error);
-      return res.status(404).json({ data: "no data found" });
+      return res.status(404).json({ data: [] });
     }
   }
 
@@ -29,7 +29,7 @@ class GuruController {
 
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(400).json({ data: "Data tidak ditemukan" });
+      return res.status(400).json({ data: [] });
     }
   }
 
