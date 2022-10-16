@@ -16,7 +16,7 @@ module.exports = {
       [
         {
           id: 1,
-          name: "1",
+          name: "IQRO 1",
           halaman: "3",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -24,7 +24,7 @@ module.exports = {
         },
         {
           id: 2,
-          name: "1",
+          name: "IQRO 1",
           halaman: "6",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -32,7 +32,7 @@ module.exports = {
         },
         {
           id: 3,
-          name: "1",
+          name: "IQRO 1",
           halaman: "10",
           tgl_selesai: "06-06-1998",
           ket: "selesai",
@@ -40,7 +40,7 @@ module.exports = {
         },
         {
           id: 4,
-          name: "2",
+          name: "IQRO 2",
           halaman: "12",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -48,7 +48,7 @@ module.exports = {
         },
         {
           id: 5,
-          name: "2",
+          name: "IQRO 2",
           halaman: "17",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -56,7 +56,7 @@ module.exports = {
         },
         {
           id: 6,
-          name: "2",
+          name: "IQRO 2",
           halaman: "20",
           tgl_selesai: "06-06-1998",
           ket: "selesai",
@@ -64,7 +64,7 @@ module.exports = {
         },
         {
           id: 7,
-          name: "3",
+          name: "IQRO 3",
           halaman: "21",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -72,7 +72,7 @@ module.exports = {
         },
         {
           id: 8,
-          name: "3",
+          name: "IQRO 3",
           halaman: "29",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -80,7 +80,7 @@ module.exports = {
         },
         {
           id: 9,
-          name: "1",
+          name: "IQRO 1",
           halaman: "5",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
@@ -88,7 +88,7 @@ module.exports = {
         },
         {
           id: 10,
-          name: "1",
+          name: "IQRO 1",
           halaman: "8",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -96,7 +96,7 @@ module.exports = {
         },
         {
           id: 11,
-          name: "1",
+          name: "IQRO 1",
           halaman: "20",
           tgl_selesai: "06-06-1998",
           ket: "selesai",
@@ -104,7 +104,7 @@ module.exports = {
         },
         {
           id: 12,
-          name: "2",
+          name: "IQRO 2",
           halaman: "28",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
@@ -112,7 +112,7 @@ module.exports = {
         },
         {
           id: 13,
-          name: "2",
+          name: "IQRO 2",
           halaman: "30",
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
@@ -120,7 +120,7 @@ module.exports = {
         },
         {
           id: 14,
-          name: "2",
+          name: "IQRO 2",
           halaman: "35",
           tgl_selesai: "06-06-1998",
           ket: "selesai",
