@@ -16,13 +16,24 @@ module.exports = {
       "Pondoks",
       [
         {
+          id: "96f95aea-ef38-4623-82af-979c383bbb36",
+          nit: "RTS0000",
+          name: "ADMIN",
+          address: "",
+          telephone: "",
+          chief: "",
+          logo:"",
+          photo: "logoadmin.png",
+        },
+        {
           id: "96f95aea-ef38-4623-82af-979c383bbb37",
           nit: "RTS0001",
           name: "Rumah Tahfidz Tazkiyah",
           address: "Jalan Padang Salam No.285",
           telephone: "08218233445",
           chief: "Ustad Adri",
-          photo: "pondoktahfiz1",
+          logo:"",
+          photo: "logo.png",
         },
         {
           id: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
@@ -31,7 +42,8 @@ module.exports = {
           address: "Jalan Padang Salam No.285",
           telephone: "08218233445",
           chief: "Ustad Dian",
-          photo: "pondoktahfiz1",
+          logo:"",
+          photo: "logo.png",
         },
         {
           id: "e3028fca-6d4a-4c80-8e09-14d253dac964",
@@ -40,7 +52,8 @@ module.exports = {
           address: "Jalan Padang Salam No.285",
           telephone: "08218233445",
           chief: "Ustad Yiansyah",
-          photo: "pondoktahfiz1",
+          logo:"",
+          photo: "logo.png",
         },
       ],
       {}

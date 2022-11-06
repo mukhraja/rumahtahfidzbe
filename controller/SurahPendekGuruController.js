@@ -48,6 +48,25 @@ class SurahPendekGuruController {
     }
   }
 
+  static async listSurahPendekAwalRumahTahfidz(req, res) {
+    try {
+      const { pondokId } = req.params;
+      const data = await sequelize.query(
+        `SELECT gurus.name as namaguru, test.*, pondoks.name as namapondok, pondoks.id as pondokId FROM (SELECT * FROM surahpendekgurus ORDER BY surahpendekgurus.id DESC LIMIT 18446744073709551615)AS test JOIN gurus ON gurus.id=test.guruId JOIN pondoks ON pondoks.id=gurus.pondokId WHERE pondoks.id = '${pondokId}' GROUP BY guruId`,
+        {
+          model: Surahpendekguru,
+          type: QueryTypes.SELECT,
+          mapToModel: true,
+          nest: true,
+          raw: true,
+        }
+      );
+      res.status(200).json({ data });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
   static async createSurahPendek(req, res) {
     try {
       const { name, tgl_selesai, guruId, ket } = req.body;

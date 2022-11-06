@@ -28,6 +28,21 @@ class SantriController {
     }
   }
 
+  static async getSantriByRumahTahfiz(req, res) {
+    try {
+      const { pondokId } = req.params;
+
+      const newData = await Santri.findAll({
+        where: { pondokId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createSantri(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -35,15 +50,15 @@ class SantriController {
         id: uuid.v4(),
         name: fields[0].value,
         nis: fields[1].value,
-        address: fields[2].value,
+        tempat: fields[2].value,
         datebirth: fields[3].value,
         gender: fields[4].value,
-        education: fields[5].value,
-        city: fields[6].value,
-        province: fields[7].value,
-        parent: fields[8].value,
-        telephone: fields[9].value,
-        tgl_masuk: fields[10].value,
+        address: fields[5].value,
+        ayah: fields[6].value,
+        ibu: fields[7].value,
+        telephone: fields[8].value,
+        mulai_masuk: fields[9].value,
+        mulai_vakum: fields[10].value,
         pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
@@ -63,15 +78,15 @@ class SantriController {
       const payload = {
         name: fields[0].value,
         nis: fields[1].value,
-        address: fields[2].value,
+        tempat: fields[2].value,
         datebirth: fields[3].value,
         gender: fields[4].value,
-        education: fields[5].value,
-        city: fields[6].value,
-        province: fields[7].value,
-        parent: fields[8].value,
-        telephone: fields[9].value,
-        tgl_masuk: fields[10].value,
+        address: fields[5].value,
+        ayah: fields[6].value,
+        ibu: fields[7].value,
+        telephone: fields[8].value,
+        mulai_masuk: fields[9].value,
+        mulai_vakum: fields[10].value,
         pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
@@ -93,13 +108,12 @@ class SantriController {
         nis,
         datebirth,
         gender,
-        education,
-        city,
-        province,
         address,
-        parent,
+        ayah,
+        ibu,
         telephone,
-        tgl_masuk,
+        mulai_masuk,
+        mulai_vakum,
         pondokId,
       } = req.body;
 
@@ -108,13 +122,12 @@ class SantriController {
         nis,
         datebirth,
         gender,
-        education,
-        city,
-        province,
         address,
-        parent,
+        ayah,
+        ibu,
         telephone,
-        tgl_masuk,
+        mulai_masuk,
+        mulai_vakum,
         pondokId,
       };
 

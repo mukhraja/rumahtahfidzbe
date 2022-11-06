@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Users.belongsTo(models.Roles, { foreignKey: "roleId" });
       Users.belongsToMany(models.Santri, { through: models.UserSantri });
+      Users.belongsTo(models.Pondok, { foreignKey: "pondokId" });
     }
   }
   Users.init(
@@ -30,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       photo: DataTypes.STRING,
       refresh_token: DataTypes.TEXT,
       roleId: DataTypes.STRING,
+      pondokId: DataTypes.STRING,
     },
     {
       sequelize,

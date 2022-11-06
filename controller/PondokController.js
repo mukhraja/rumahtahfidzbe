@@ -35,6 +35,21 @@ class PondokController {
     }
   }
 
+  static async getPondokRumahTahfidz(req, res) {
+    try {
+      const { id } = req.params;
+
+      const newData = await Pondok.findAll({
+        where: { id },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createPondok(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -45,7 +60,8 @@ class PondokController {
         address: fields[2].value,
         telephone: fields[3].value,
         chief: fields[4].value,
-        photo: files[0].file.newFilename,
+        logo: files[0].file.newFilename,
+        photo: files[1].file.newFilename,
       };
 
       const newData = await Pondok.create(payload);
@@ -55,27 +71,102 @@ class PondokController {
     }
   }
 
+  // static async updatePondok(req, res) {
+  //   try {
+  //     const { files, fields } = req.fileAttrb;
+  //     const { id } = req.params;
+
+  //     const payload = {
+  //       name: fields[0].value,
+  //       nit: fields[1].value,
+  //       address: fields[2].value,
+  //       telephone: fields[3].value,
+  //       chief: fields[4].value,
+  //       logo: files[0].file.newFilename,
+  //       photo: files[1].file.newFilename,
+  //     };
+
+  //     const newData = await Pondok.update(payload, {
+  //       where: { id },
+  //       returning: true,
+  //     });
+  //     res.status(200).json({ data: newData });
+  //   } catch (error) {
+  //     return res.status(404).json({ data: "Pastikan Semua data benar" });
+  //   }
+  // }
+
   static async updatePondok(req, res) {
-    try {
-      const { files, fields } = req.fileAttrb;
-      const { id } = req.params;
+    const { files, fields } = req.fileAttrb;
 
-      const payload = {
-        name: fields[0].value,
-        nit: fields[1].value,
-        address: fields[2].value,
-        telephone: fields[3].value,
-        chief: fields[4].value,
-        photo: files[0].file.newFilename,
-      };
+    if (
+      files.length === 2 &&
+      files[0].fieldName === "logo" &&
+      files[1].fieldName === "photo"
+    ) {
+      try {
+        const { id } = req.params;
 
-      const newData = await Pondok.update(payload, {
-        where: { id },
-        returning: true,
-      });
-      res.status(200).json({ data: newData });
-    } catch (error) {
-      return res.status(404).json({ data: "Pastikan Semua data benar" });
+        const payload = {
+          name: fields[0].value,
+          nit: fields[1].value,
+          address: fields[2].value,
+          telephone: fields[3].value,
+          chief: fields[4].value,
+          logo: files[0].file.newFilename,
+          photo: files[1].file.newFilename,
+        };
+
+        const newData = await Pondok.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      } catch (error) {
+        return res.status(404).json({ data: "Pastikan Semua data benar" });
+      }
+    } else if (files[0].fieldName === "photo") {
+      try {
+        const { id } = req.params;
+
+        const payload = {
+          name: fields[0].value,
+          nit: fields[1].value,
+          address: fields[2].value,
+          telephone: fields[3].value,
+          chief: fields[4].value,
+          photo: files[0].file.newFilename,
+        };
+
+        const newData = await Pondok.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      } catch (error) {
+        return res.status(404).json({ data: "Pastikan Semua data benar" });
+      }
+    } else if (files[0].fieldName === "logo") {
+      try {
+        const { id } = req.params;
+
+        const payload = {
+          name: fields[0].value,
+          nit: fields[1].value,
+          address: fields[2].value,
+          telephone: fields[3].value,
+          chief: fields[4].value,
+          logo: files[0].file.newFilename,
+        };
+
+        const newData = await Pondok.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      } catch (error) {
+        return res.status(404).json({ data: "Pastikan Semua data benar" });
+      }
     }
   }
 

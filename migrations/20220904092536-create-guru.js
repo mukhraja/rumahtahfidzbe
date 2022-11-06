@@ -13,7 +13,7 @@ module.exports = {
       niu: {
         type: Sequelize.STRING,
       },
-      email: {
+      tempat: {
         type: Sequelize.STRING,
       },
       datebirth: {
@@ -23,9 +23,6 @@ module.exports = {
         type: Sequelize.STRING,
       },
       telephone: {
-        type: Sequelize.STRING,
-      },
-      education: {
         type: Sequelize.STRING,
       },
       address: {

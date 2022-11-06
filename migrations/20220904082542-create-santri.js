@@ -19,28 +19,28 @@ module.exports = {
       gender: {
         type: Sequelize.STRING,
       },
-      education: {
-        type: Sequelize.STRING,
-      },
-      city: {
-        type: Sequelize.STRING,
-      },
-      province: {
+      tempat: {
         type: Sequelize.STRING,
       },
       address: {
         type: Sequelize.STRING,
       },
-      parent: {
-        type: Sequelize.STRING,
-      },
       telephone: {
         type: Sequelize.INTEGER,
+      },
+      ayah: {
+        type: Sequelize.STRING,
+      },
+      ibu: {
+        type: Sequelize.STRING,
       },
       photo: {
         type: Sequelize.STRING,
       },
-      tgl_masuk: {
+      mulai_masuk: {
+        type: Sequelize.DATE,
+      },
+      mulai_vakum: {
         type: Sequelize.DATE,
       },
       pondokId: {

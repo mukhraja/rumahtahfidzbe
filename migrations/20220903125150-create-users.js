@@ -46,6 +46,15 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "set null",
       },
+      pondokId: {
+        type: Sequelize.STRING,
+        references: {
+          model: "Pondoks",
+          key: "id",
+        },
+        onUpdate: "cascade",
+        onDelete: "set null",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

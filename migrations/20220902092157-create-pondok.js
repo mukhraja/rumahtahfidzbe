@@ -22,6 +22,9 @@ module.exports = {
       chief: {
         type: Sequelize.STRING,
       },
+      logo: {
+        type: Sequelize.STRING,
+      },
       photo: {
         type: Sequelize.STRING,
       },

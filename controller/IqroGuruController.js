@@ -34,6 +34,25 @@ class IqroGuruController {
     }
   }
 
+  static async listIqroAwalRumahTahfidz(req, res) {
+    try {
+      const {pondokId} = req.params;
+      const data = await sequelize.query(
+        `SELECT gurus.name as namaguru, pondoks.name as pondokName, pondoks.id as pondokId, test.* FROM (SELECT * FROM iqrogurus ORDER BY iqrogurus.id DESC LIMIT 18446744073709551615)AS test JOIN gurus ON gurus.id=test.guruId JOIN pondoks ON pondoks.id=gurus.pondokId WHERE pondoks.id = '${pondokId}' GROUP BY guruId;`,
+        {
+          model: Iqroguru,
+          type: QueryTypes.SELECT,
+          mapToModel: true,
+          nest: true,
+          raw: true,
+        }
+      );
+      res.status(200).json({ data });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
   static async getIqro(req, res) {
     try {
       const { id } = req.params;

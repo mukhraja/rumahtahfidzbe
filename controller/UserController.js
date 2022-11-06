@@ -1,4 +1,4 @@
-const { Users } = require("../models");
+const { Users,Pondok } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
@@ -35,6 +35,21 @@ class UserController {
     }
   }
 
+  static async getUserByRumahTahfidz(req, res) {
+    try {
+      const { pondokId } = req.params;
+
+      const newData = await Users.findAll({
+        where: { pondokId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createUser(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -50,6 +65,7 @@ class UserController {
         gender: fields[7].value,
         parent: fields[8].value,
         roleId: fields[9].value,
+        pondokId: fields[9].value,
         photo: files[0].file.newFilename,
       };
 
@@ -73,6 +89,7 @@ class UserController {
         age,
         parent,
         roleId,
+        pondokId
       } = req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
@@ -89,6 +106,7 @@ class UserController {
         gender,
         parent,
         roleId,
+        pondokId
       };
 
       const newData = await Users.create(payload);
@@ -112,6 +130,7 @@ class UserController {
         age,
         parent,
         roleId,
+        pondokId
       } = req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
@@ -127,6 +146,7 @@ class UserController {
         age,
         parent,
         roleId,
+        pondokId
       };
 
       console.log(payload);
@@ -159,6 +179,7 @@ class UserController {
         gender: fields[7].value,
         parent: fields[9].value,
         roleId: fields[10].value,
+        pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
 
@@ -188,7 +209,7 @@ class UserController {
       const user = await Users.findAll({
         where: {
           email: req.body.email,
-        },
+        },include: [{ all: true }],
       });
       const match = await bcrypt.compare(req.body.password, user[0].password);
       if (match) {
@@ -196,13 +217,17 @@ class UserController {
         const name = user[0].name;
         const email = user[0].email;
         const role = user[0].roleId;
+        const roleName = user[0].Role.name;
+        const photo = user[0].photo;
+        const logotahfidz = user[0].Pondok.photo;
+        const pondokId = user[0].pondokId;
         const accessToken = jwt.sign(
-          { userId, name, email, role },
+          { userId, name, email, role,photo, logotahfidz, roleName},
           process.env.ACCESS_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
         const refresh_token = jwt.sign(
-          { userId, name, email, role },
+          { userId, name, email, role,photo, logotahfidz,roleName},
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
@@ -221,7 +246,7 @@ class UserController {
         });
         res
           .status(200)
-          .json({ profile: { name, email, role, userId }, token: accessToken });
+          .json({ profile: { name, email, role,photo, logotahfidz,roleName, userId, pondokId }, token: accessToken });
       } else {
         next(error);
       }

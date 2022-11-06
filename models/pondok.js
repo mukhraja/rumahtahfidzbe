@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Pondok.hasMany(models.Santri);
       Pondok.hasMany(models.Guru);
+      Pondok.hasMany(models.Users);
     }
   }
   Pondok.init(
@@ -24,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       address: DataTypes.STRING,
       telephone: DataTypes.STRING,
       chief: DataTypes.STRING,
+      logo: DataTypes.STRING,
       photo: DataTypes.STRING,
     },
     {

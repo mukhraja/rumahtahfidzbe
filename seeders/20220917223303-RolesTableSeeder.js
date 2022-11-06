@@ -16,6 +16,10 @@ module.exports = {
       "Roles",
       [
         {
+          id: "8b273d68-fe09-422d-a660-af3d8312f883",
+          name: "Master Admin",
+        },
+        {
           id: "8b273d68-fe09-422d-a660-af3d8312f884",
           name: "admin",
         },

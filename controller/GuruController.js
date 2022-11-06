@@ -33,6 +33,21 @@ class GuruController {
     }
   }
 
+  static async getgurubyrumahtahfidz(req, res) {
+    try {
+      const { pondokId } = req.params;
+
+      const newData = await Guru.findAll({
+        where: { pondokId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: [] });
+    }
+  }
+
   static async createGuru(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -40,17 +55,16 @@ class GuruController {
         id: uuid.v4(),
         name: fields[0].value,
         niu: fields[1].value,
-        email: fields[2].value,
+        tempat: fields[2].value,
         datebirth: fields[3].value,
         gender: fields[4].value,
         telephone: fields[5].value,
-        education: fields[6].value,
-        address: fields[7].value,
-        ayah: fields[8].value,
-        ibu: fields[9].value,
-        mulai_masuk: fields[10].value,
-        mulai_vakum: fields[11].value,
-        pondokId: fields[12].value,
+        address: fields[6].value,
+        ayah: fields[7].value,
+        ibu: fields[8].value,
+        mulai_masuk: fields[9].value,
+        mulai_vakum: fields[10].value,
+        pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
 
@@ -68,17 +82,16 @@ class GuruController {
       const payload = {
         name: fields[0].value,
         niu: fields[1].value,
-        email: fields[2].value,
+        tempat: fields[2].value,
         datebirth: fields[3].value,
         gender: fields[4].value,
         telephone: fields[5].value,
-        education: fields[6].value,
-        address: fields[7].value,
-        ayah: fields[8].value,
-        ibu: fields[9].value,
-        mulai_masuk: fields[10].value,
-        mulai_vakum: fields[11].value,
-        pondokId: fields[12].value,
+        address: fields[6].value,
+        ayah: fields[7].value,
+        ibu: fields[8].value,
+        mulai_masuk: fields[9].value,
+        mulai_vakum: fields[10].value,
+        pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
 
@@ -98,9 +111,8 @@ class GuruController {
       const {
         name,
         niu,
-        email,
+        tempat,
         telephone,
-        education,
         address,
         datebirth,
         gender,
@@ -115,9 +127,8 @@ class GuruController {
       const payload = {
         name,
         niu,
-        email,
+        tempat,
         telephone,
-        education,
         address,
         datebirth,
         gender,
