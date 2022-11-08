@@ -20,7 +20,7 @@ class SurahPendekController {
   static async listSurahPendekAwal(req, res) {
     try {
       const data = await sequelize.query(
-        "SELECT santris.name as namasantri, test.*, pondoks.name as namapondok FROM (SELECT * FROM surahpendeksantris ORDER BY surahpendeksantris.id DESC LIMIT 18446744073709551615)AS test JOIN santris ON santris.id=test.santriId JOIN pondoks ON pondoks.id=santris.pondokId GROUP BY santriId",
+        "SELECT Santris.name as namasantri, test.*, Pondoks.name as namapondok FROM (SELECT * FROM Surahpendeksantris ORDER BY Surahpendeksantris.id DESC LIMIT 18446744073709551615)AS test JOIN Santris ON Santris.id=test.santriId JOIN Pondoks ON Pondoks.id=Santris.pondokId GROUP BY santriId",
         {
           model: Surahpendeksantri,
           type: QueryTypes.SELECT,
@@ -36,9 +36,9 @@ class SurahPendekController {
   }
   static async listSurahPendekAwalRumahTahfidz(req, res) {
     try {
-      const {pondokId} = req.params;
+      const { pondokId } = req.params;
       const data = await sequelize.query(
-        `SELECT santris.name as namasantri, test.*, pondoks.name as namapondok, pondoks.id as pondokId FROM (SELECT * FROM surahpendeksantris ORDER BY surahpendeksantris.id DESC LIMIT 18446744073709551615)AS test JOIN santris ON santris.id=test.santriId JOIN pondoks ON pondoks.id=santris.pondokId WHERE pondokId = '${pondokId}'  GROUP BY santriId`,
+        `SELECT Santris.name as namasantri, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Surahpendeksantris ORDER BY Surahpendeksantris.id DESC LIMIT 18446744073709551615)AS test JOIN Santris ON Santris.id=test.santriId JOIN Pondoks ON Pondoks.id=Santris.pondokId WHERE pondokId = '${pondokId}'  GROUP BY santriId`,
         {
           model: Surahpendeksantri,
           type: QueryTypes.SELECT,

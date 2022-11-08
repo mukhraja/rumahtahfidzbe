@@ -6,7 +6,7 @@ class AlquranController {
   static async listAlquranAwal(req, res) {
     try {
       const data = await sequelize.query(
-        "SELECT gurus.name as namaguru, test.*, pondoks.name as namapondok FROM (SELECT * FROM alqurangurus ORDER BY alqurangurus.id DESC LIMIT 18446744073709551615)AS test JOIN gurus ON gurus.id=test.guruId JOIN pondoks ON pondoks.id=gurus.pondokId GROUP BY guruId",
+        "SELECT Gurus.name as namaguru, test.*, Pondoks.name as namapondok FROM (SELECT * FROM Alqurangurus ORDER BY Alqurangurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId GROUP BY guruId",
         {
           model: Alquranguru,
           type: QueryTypes.SELECT,
@@ -23,9 +23,9 @@ class AlquranController {
 
   static async listAlquranAwalRumahTahfidz(req, res) {
     try {
-      const {pondokId} = req.params;
+      const { pondokId } = req.params;
       const data = await sequelize.query(
-        `SELECT gurus.name as namaguru, test.*, pondoks.name as namapondok, pondoks.id as pondokId FROM (SELECT * FROM alqurangurus ORDER BY alqurangurus.id DESC LIMIT 18446744073709551615)AS test JOIN gurus ON gurus.id=test.guruId JOIN pondoks ON pondoks.id=gurus.pondokId WHERE pondoks.id = '${pondokId}' GROUP BY guruId`,
+        `SELECT Gurus.name as namaguru, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Alqurangurus ORDER BY Alqurangurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId WHERE Pondoks.id = '${pondokId}' GROUP BY guruId`,
         {
           model: Alquranguru,
           type: QueryTypes.SELECT,
