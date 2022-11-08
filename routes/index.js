@@ -13,19 +13,19 @@ const surahpendekguruRoute = require("./surahpendekguruRoute");
 const alquranguruRoute = require("./alquranguruRoute");
 const route = require("express").Router();
 
-route.use("/v1/api/user", userRoute);
-route.use("/v1/api/iqro", iqroRoute);
-route.use("/v1/api/santri", santriRoute);
-route.use("/v1/api/guru", guruRoute);
-route.use("/v1/api/pondok", pondokRoute);
-route.use("/v1/api/alquran", alquranRoute);
-route.use("/v1/api/surahpendek", surahpendekRoute);
-route.use("/v1/api/database", databaseRoute);
-route.use("/v1/api/role", roleRoute);
-route.use("/v1/api/iqroguru", iqroguruRoute);
-route.use("/v1/api/surahpendekguru", surahpendekguruRoute);
-route.use("/v1/api/alquranguru", alquranguruRoute);
+route.use("/newbackend/v1/api/user", userRoute);
+route.use("/newbackend/v1/api/iqro", iqroRoute);
+route.use("/newbackend/v1/api/santri", santriRoute);
+route.use("/newbackend/v1/api/guru", guruRoute);
+route.use("/newbackend/v1/api/pondok", pondokRoute);
+route.use("/newbackend/v1/api/alquran", alquranRoute);
+route.use("/newbackend/v1/api/surahpendek", surahpendekRoute);
+route.use("/newbackend/v1/api/database", databaseRoute);
+route.use("/newbackend/v1/api/role", roleRoute);
+route.use("/newbackend/v1/api/iqroguru", iqroguruRoute);
+route.use("/newbackend/v1/api/surahpendekguru", surahpendekguruRoute);
+route.use("/newbackend/v1/api/alquranguru", alquranguruRoute);
 
-route.use("/v1/api/gambar", imageRoute);
+route.use("/newbackend/v1/api/gambar", imageRoute);
 
 module.exports = route;
