@@ -1,4 +1,4 @@
-const { Users,Pondok } = require("../models");
+const { Users, Pondok } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
@@ -89,7 +89,7 @@ class UserController {
         age,
         parent,
         roleId,
-        pondokId
+        pondokId,
       } = req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
@@ -106,7 +106,7 @@ class UserController {
         gender,
         parent,
         roleId,
-        pondokId
+        pondokId,
       };
 
       const newData = await Users.create(payload);
@@ -130,7 +130,7 @@ class UserController {
         age,
         parent,
         roleId,
-        pondokId
+        pondokId,
       } = req.body;
 
       const hashPassword = bcrypt.hashSync(password, salt);
@@ -146,7 +146,7 @@ class UserController {
         age,
         parent,
         roleId,
-        pondokId
+        pondokId,
       };
 
       console.log(payload);
@@ -209,7 +209,8 @@ class UserController {
       const user = await Users.findAll({
         where: {
           email: req.body.email,
-        },include: [{ all: true }],
+        },
+        include: [{ all: true }],
       });
       const match = await bcrypt.compare(req.body.password, user[0].password);
       if (match) {
@@ -219,15 +220,15 @@ class UserController {
         const role = user[0].roleId;
         const roleName = user[0].Role.name;
         const photo = user[0].photo;
-        const logotahfidz = user[0].Pondok.photo;
+        const logotahfidz = user[0].Pondok.logo;
         const pondokId = user[0].pondokId;
         const accessToken = jwt.sign(
-          { userId, name, email, role,photo, logotahfidz, roleName},
+          { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.ACCESS_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
         const refresh_token = jwt.sign(
-          { userId, name, email, role,photo, logotahfidz,roleName},
+          { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
@@ -244,9 +245,19 @@ class UserController {
           httpOnly: true,
           maxAge: 24 * 60 * 60 * 1000,
         });
-        res
-          .status(200)
-          .json({ profile: { name, email, role,photo, logotahfidz,roleName, userId, pondokId }, token: accessToken });
+        res.status(200).json({
+          profile: {
+            name,
+            email,
+            role,
+            photo,
+            logotahfidz,
+            roleName,
+            userId,
+            pondokId,
+          },
+          token: accessToken,
+        });
       } else {
         next(error);
       }
