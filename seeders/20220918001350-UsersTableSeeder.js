@@ -28,6 +28,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "8b273d68-fe09-422d-a660-af3d8312f883",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb35",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3040",
@@ -41,6 +43,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "8b273d68-fe09-422d-a660-af3d8312f884",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "8ce3ed88-34e4-4fb2-baa7-26b6151a43fc",
@@ -54,6 +58,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1a2832f9-ceb7-4ff9-930a-af176c88dcc5",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "7a8fd74d-3fe0-4b7b-8d77-1e8266983ade",
@@ -67,6 +73,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1b864518-299d-469c-b270-4d4b9d5b120f",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3041",
@@ -80,6 +88,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "8b273d68-fe09-422d-a660-af3d8312f884",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3042",
@@ -93,6 +103,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1a2832f9-ceb7-4ff9-930a-af176c88dcc5",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3043",
@@ -106,6 +118,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1b864518-299d-469c-b270-4d4b9d5b120f",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3044",
@@ -119,6 +133,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "8b273d68-fe09-422d-a660-af3d8312f884",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3045",
@@ -132,6 +148,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1a2832f9-ceb7-4ff9-930a-af176c88dcc5",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3046",
@@ -145,6 +163,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1b864518-299d-469c-b270-4d4b9d5b120f",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3047",
@@ -158,6 +178,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "8b273d68-fe09-422d-a660-af3d8312f884",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3048",
@@ -171,6 +193,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1a2832f9-ceb7-4ff9-930a-af176c88dcc5",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3049",
@@ -184,6 +208,8 @@ module.exports = {
           photo: "adminprofile.png",
           roleId: "1b864518-299d-469c-b270-4d4b9d5b120f",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

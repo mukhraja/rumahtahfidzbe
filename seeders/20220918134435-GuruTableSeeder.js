@@ -31,6 +31,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50457",
@@ -48,6 +50,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50458",
@@ -65,6 +69,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50459",
@@ -82,6 +88,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50460",
@@ -99,6 +107,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50461",
@@ -116,6 +126,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50462",
@@ -133,6 +145,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50463",
@@ -150,6 +164,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50464",
@@ -167,6 +183,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50465",
@@ -184,6 +202,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50466",
@@ -201,6 +221,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50467",
@@ -218,6 +240,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50468",
@@ -235,6 +259,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50480",
@@ -252,6 +278,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50469",
@@ -269,6 +297,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50470",
@@ -286,6 +316,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50471",
@@ -303,6 +335,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50472",
@@ -320,6 +354,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50473",
@@ -337,6 +373,8 @@ module.exports = {
           mulai_vakum: "2023-10-10",
           photo: "aji.jpg",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

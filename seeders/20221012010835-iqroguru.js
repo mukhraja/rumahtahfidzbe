@@ -21,6 +21,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 2,
@@ -29,6 +31,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 3,
@@ -37,6 +41,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "selesai",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 4,
@@ -45,6 +51,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 5,
@@ -53,6 +61,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 6,
@@ -61,6 +71,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "selesai",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 7,
@@ -69,6 +81,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 8,
@@ -77,6 +91,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50462",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 9,
@@ -85,6 +101,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 10,
@@ -93,6 +111,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 11,
@@ -101,6 +121,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "selesai",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 12,
@@ -109,6 +131,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 13,
@@ -117,6 +141,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 14,
@@ -125,6 +151,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "selesai",
           guruId: "245d57c6-0076-44ea-9876-dd2d3da50466",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

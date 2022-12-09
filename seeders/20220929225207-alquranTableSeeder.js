@@ -22,6 +22,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 2,
@@ -31,6 +33,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 3,
@@ -40,6 +44,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 4,
@@ -49,6 +55,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 5,
@@ -58,6 +66,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 6,
@@ -67,6 +77,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 7,
@@ -76,6 +88,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 8,
@@ -85,6 +99,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 9,
@@ -94,6 +110,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 10,
@@ -103,6 +121,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 11,
@@ -112,6 +132,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 12,
@@ -121,6 +143,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 13,
@@ -130,6 +154,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 14,
@@ -139,6 +165,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 15,
@@ -148,6 +176,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b6",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 16,
@@ -157,6 +187,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b6",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 17,
@@ -166,6 +198,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b6",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 18,
@@ -175,6 +209,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b7",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 19,
@@ -184,6 +220,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b7",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 20,
@@ -193,6 +231,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b7",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 21,
@@ -202,6 +242,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 22,
@@ -211,6 +253,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 23,
@@ -220,6 +264,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 24,
@@ -229,6 +275,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 25,
@@ -238,6 +286,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c7",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 26,
@@ -247,6 +297,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c7",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 27,
@@ -256,6 +308,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c8",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 28,
@@ -265,6 +319,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c8",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 29,
@@ -274,6 +330,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 30,
@@ -283,6 +341,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 31,
@@ -292,6 +352,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c15",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 32,
@@ -301,6 +363,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c15",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 33,
@@ -310,6 +374,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 34,
@@ -319,6 +385,8 @@ module.exports = {
           tgl_selesai: "06-06-1998",
           ket: "Tuntas lanjut",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

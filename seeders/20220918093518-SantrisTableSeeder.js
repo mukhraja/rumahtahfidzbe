@@ -29,6 +29,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
@@ -45,6 +47,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
@@ -61,6 +65,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b2",
@@ -77,6 +83,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb37",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
@@ -93,6 +101,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
@@ -109,6 +119,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b5",
@@ -125,6 +137,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b6",
@@ -141,6 +155,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b7",
@@ -157,6 +173,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b8",
@@ -173,6 +191,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b9",
@@ -189,6 +209,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c2",
@@ -205,6 +227,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
@@ -221,6 +245,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
@@ -237,6 +263,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c5",
@@ -253,6 +281,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
@@ -269,6 +299,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c7",
@@ -285,6 +317,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c8",
@@ -301,6 +335,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "96f95aea-ef38-4623-82af-979c383bbb36",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c9",
@@ -317,6 +353,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c10",
@@ -333,6 +371,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
@@ -349,6 +389,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c12",
@@ -365,6 +407,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac964",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c13",
@@ -381,6 +425,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
@@ -397,6 +443,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c15",
@@ -413,6 +461,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c16",
@@ -429,6 +479,8 @@ module.exports = {
           mulai_masuk: "2022-08-07T17:00:00.000Z",
           mulai_vakum: "2022-08-07T17:00:00.000Z",
           pondokId: "e3028fca-6d4a-4c80-8e09-14d253dac965",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

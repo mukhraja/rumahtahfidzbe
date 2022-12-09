@@ -25,6 +25,8 @@ module.exports = {
           logo: "",
           photo: "logoadmin.png",
           masterpondokId: "96f95aea-ef38-4623-82af-979c383bbb01",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "96f95aea-ef38-4623-82af-979c383bbb36",
@@ -36,6 +38,8 @@ module.exports = {
           logo: "",
           photo: "logoadmin.png",
           masterpondokId: "96f95aea-ef38-4623-82af-979c383bbb02",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "96f95aea-ef38-4623-82af-979c383bbb37",
@@ -47,6 +51,8 @@ module.exports = {
           logo: "",
           photo: "logo.png",
           masterpondokId: "96f95aea-ef38-4623-82af-979c383bbb02",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "5a7bee8c-3ac3-4542-b792-5fe7806077b4",
@@ -58,6 +64,8 @@ module.exports = {
           logo: "",
           photo: "logo.png",
           masterpondokId: "96f95aea-ef38-4623-82af-979c383bbb02",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "e3028fca-6d4a-4c80-8e09-14d253dac964",
@@ -69,6 +77,8 @@ module.exports = {
           logo: "",
           photo: "logo.png",
           masterpondokId: "5a7bee8c-3ac3-4542-b792-5fe780607703",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "e3028fca-6d4a-4c80-8e09-14d253dac965",
@@ -80,6 +90,8 @@ module.exports = {
           logo: "",
           photo: "logo.png",
           masterpondokId: "5a7bee8c-3ac3-4542-b792-5fe780607703",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
