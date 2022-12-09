@@ -22,10 +22,10 @@ module.exports = {
     // database: "heroku_07ded5028e0e6ed",
     // host: "us-cdbr-east-06.cleardb.net",
     // dialect: "mysql",
-    username: "pony9161_adri",
-    password: "Palembang123",
-    database: "pony9161_rumahtahfidz",
-    host: "localhost",
+    username: "aji",
+    password: "12345",
+    database: "rumahtahfidz",
+    host: "143.198.200.178",
     dialect: "mysql",
     // dialectOptions: {
     //   ssl: {
