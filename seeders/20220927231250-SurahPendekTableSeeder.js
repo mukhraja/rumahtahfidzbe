@@ -17,7 +17,7 @@ module.exports = {
         {
           id: 1,
           name: "An Naba’",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
           createdAt: new Date(),
@@ -26,7 +26,7 @@ module.exports = {
         {
           id: 2,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
           createdAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
         {
           id: 3,
           name: "Al Lahab",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a8",
           createdAt: new Date(),
@@ -44,7 +44,7 @@ module.exports = {
         {
           id: 4,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
           createdAt: new Date(),
@@ -53,7 +53,7 @@ module.exports = {
         {
           id: 5,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
           createdAt: new Date(),
@@ -62,7 +62,7 @@ module.exports = {
         {
           id: 6,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
           createdAt: new Date(),
@@ -71,7 +71,7 @@ module.exports = {
         {
           id: 7,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
           createdAt: new Date(),
@@ -80,7 +80,7 @@ module.exports = {
         {
           id: 8,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
           createdAt: new Date(),
@@ -89,7 +89,7 @@ module.exports = {
         {
           id: 9,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
           createdAt: new Date(),
@@ -98,7 +98,7 @@ module.exports = {
         {
           id: 10,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
           createdAt: new Date(),
@@ -107,7 +107,7 @@ module.exports = {
         {
           id: 11,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
           createdAt: new Date(),
@@ -116,7 +116,7 @@ module.exports = {
         {
           id: 12,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
           createdAt: new Date(),
@@ -125,7 +125,7 @@ module.exports = {
         {
           id: 13,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
           createdAt: new Date(),
@@ -134,7 +134,7 @@ module.exports = {
         {
           id: 14,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
           createdAt: new Date(),
@@ -143,7 +143,7 @@ module.exports = {
         {
           id: 15,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
           createdAt: new Date(),
@@ -152,7 +152,7 @@ module.exports = {
         {
           id: 16,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
           createdAt: new Date(),
@@ -161,7 +161,7 @@ module.exports = {
         {
           id: 17,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
           createdAt: new Date(),
@@ -170,7 +170,7 @@ module.exports = {
         {
           id: 18,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
           createdAt: new Date(),
@@ -179,7 +179,7 @@ module.exports = {
         {
           id: 19,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
           createdAt: new Date(),
@@ -188,7 +188,7 @@ module.exports = {
         {
           id: 20,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
           createdAt: new Date(),
@@ -197,7 +197,7 @@ module.exports = {
         {
           id: 21,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
           createdAt: new Date(),
@@ -206,7 +206,7 @@ module.exports = {
         {
           id: 22,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c5",
           createdAt: new Date(),
@@ -215,7 +215,7 @@ module.exports = {
         {
           id: 23,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c5",
           createdAt: new Date(),
@@ -224,7 +224,7 @@ module.exports = {
         {
           id: 24,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
           createdAt: new Date(),
@@ -233,7 +233,7 @@ module.exports = {
         {
           id: 25,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
           createdAt: new Date(),
@@ -242,7 +242,7 @@ module.exports = {
         {
           id: 26,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
           createdAt: new Date(),
@@ -251,7 +251,7 @@ module.exports = {
         {
           id: 27,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
           createdAt: new Date(),
@@ -260,7 +260,7 @@ module.exports = {
         {
           id: 28,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
           createdAt: new Date(),
@@ -269,7 +269,7 @@ module.exports = {
         {
           id: 29,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
           createdAt: new Date(),
@@ -278,7 +278,7 @@ module.exports = {
         {
           id: 30,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
           createdAt: new Date(),
@@ -287,7 +287,7 @@ module.exports = {
         {
           id: 31,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c12",
           createdAt: new Date(),
@@ -296,7 +296,7 @@ module.exports = {
         {
           id: 32,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c12",
           createdAt: new Date(),
@@ -305,7 +305,7 @@ module.exports = {
         {
           id: 33,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c12",
           createdAt: new Date(),
@@ -314,7 +314,7 @@ module.exports = {
         {
           id: 34,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c13",
           createdAt: new Date(),
@@ -323,7 +323,7 @@ module.exports = {
         {
           id: 35,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c13",
           createdAt: new Date(),
@@ -332,7 +332,7 @@ module.exports = {
         {
           id: 36,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c13",
           createdAt: new Date(),
@@ -341,7 +341,7 @@ module.exports = {
         {
           id: 37,
           name: "Al Kautsar",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
           createdAt: new Date(),
@@ -350,7 +350,7 @@ module.exports = {
         {
           id: 38,
           name: "Al Ikhlash",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
           createdAt: new Date(),
@@ -359,7 +359,7 @@ module.exports = {
         {
           id: 39,
           name: "An Nazi’at",
-          tgl_selesai: "06-06-1998",
+          tgl_selesai: new Date(),
           ket: "selesai",
           santriId: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
           createdAt: new Date(),

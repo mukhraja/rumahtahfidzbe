@@ -20,7 +20,7 @@ module.exports = {
           name: "Kakak tua",
           niu: "RTU0003",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -39,7 +39,7 @@ module.exports = {
           name: "cendrawasih",
           niu: "RTU0003",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -58,7 +58,7 @@ module.exports = {
           name: "kutilang",
           niu: "RTU0003",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -77,7 +77,7 @@ module.exports = {
           name: "pipit",
           niu: "RTU0003",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -96,7 +96,7 @@ module.exports = {
           name: "Adriansyah",
           niu: "RTU0001",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -115,7 +115,7 @@ module.exports = {
           name: "Putra Dwa",
           niu: "RTU0002",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -134,7 +134,7 @@ module.exports = {
           name: "Candra Dimuka",
           niu: "RTU0002",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -153,7 +153,7 @@ module.exports = {
           name: "Syailendra",
           niu: "RTU0003",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -172,7 +172,7 @@ module.exports = {
           name: "Sulaiman",
           niu: "RTU0004",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -191,7 +191,7 @@ module.exports = {
           name: "Aliansyah",
           niu: "RTU0005",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -210,7 +210,7 @@ module.exports = {
           name: "Batara Dwi",
           niu: "RTU0006",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -229,7 +229,7 @@ module.exports = {
           name: "Mahduf Munir",
           niu: "RTU0006",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -248,7 +248,7 @@ module.exports = {
           name: "Hola Kasih",
           niu: "RTU0007",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -267,7 +267,7 @@ module.exports = {
           name: "Dwi Asmarani",
           niu: "RTU0008",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -286,7 +286,7 @@ module.exports = {
           name: "Dwi hasanaha",
           niu: "RTU0009",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -305,7 +305,7 @@ module.exports = {
           name: "Yansana alika",
           niu: "RTU0010",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -324,7 +324,7 @@ module.exports = {
           name: "Merak",
           niu: "RTU0010",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -343,7 +343,7 @@ module.exports = {
           name: "Camar",
           niu: "RTU0010",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:
@@ -362,7 +362,7 @@ module.exports = {
           name: "Wasamanda",
           niu: "RTU0010",
           tempat: "Padang",
-          datebirth: "1998-06-06",
+          datebirth: new Date(),
           gender: "Pria",
           telephone: "082177751041",
           address:

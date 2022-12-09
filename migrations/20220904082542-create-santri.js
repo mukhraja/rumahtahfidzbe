@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       telephone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       ayah: {
         type: Sequelize.STRING,
