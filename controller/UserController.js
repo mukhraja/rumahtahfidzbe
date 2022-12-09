@@ -3,6 +3,7 @@ const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
 const jwt = require("jsonwebtoken");
+const { Model } = require("sequelize");
 
 class UserController {
   static async getUsers(req, res) {
@@ -31,7 +32,7 @@ class UserController {
 
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(400).json({ data: "Data tidak ditemukan" });
+      return res.status(400).json({ data: error });
     }
   }
 

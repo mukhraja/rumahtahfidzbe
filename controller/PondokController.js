@@ -105,7 +105,7 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
+          // masterpondokId: fields[5].value,
           logo: files[0].file.newFilename,
           photo: files[1].file.newFilename,
         };
@@ -128,7 +128,7 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
+          // masterpondokId: fields[5].value,
           photo: files[0].file.newFilename,
         };
 
@@ -150,7 +150,7 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
+          // masterpondokId: fields[5].value,
           logo: files[0].file.newFilename,
         };
 
@@ -168,7 +168,7 @@ class PondokController {
   static async updatePondokNoFile(req, res) {
     try {
       const { id } = req.params;
-      const { name, nit, address, telephone, chief, masterpondokId } = req.body;
+      const { name, nit, address, telephone, chief } = req.body;
 
       const payload = {
         name,
@@ -176,7 +176,7 @@ class PondokController {
         address,
         telephone,
         chief,
-        masterpondokId,
+        // masterpondokId,
       };
 
       const newData = await Pondok.update(payload, {
