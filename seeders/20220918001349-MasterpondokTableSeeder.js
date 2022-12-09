@@ -24,6 +24,8 @@ module.exports = {
           chief: "",
           logo: "",
           photo: "logoadmin.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "96f95aea-ef38-4623-82af-979c383bbb02",
@@ -34,6 +36,8 @@ module.exports = {
           chief: "Ustad Adri",
           logo: "",
           photo: "logo.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "5a7bee8c-3ac3-4542-b792-5fe780607703",
@@ -44,6 +48,8 @@ module.exports = {
           chief: "Ustad Dian",
           logo: "",
           photo: "logo.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: "e3028fca-6d4a-4c80-8e09-14d253dac904",
@@ -54,6 +60,8 @@ module.exports = {
           chief: "Ustad Yiansyah",
           logo: "",
           photo: "logo.png",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

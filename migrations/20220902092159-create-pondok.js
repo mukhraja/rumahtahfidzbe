@@ -31,7 +31,7 @@ module.exports = {
       masterpondokId: {
         type: Sequelize.STRING,
         references: {
-          model: "MasterPondoks",
+          model: "Masterpondoks",
           key: "id",
         },
         onUpdate: "cascade",
