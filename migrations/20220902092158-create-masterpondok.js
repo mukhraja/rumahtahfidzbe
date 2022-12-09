@@ -1,7 +1,8 @@
 "use strict";
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable("Masterpondoks", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -10,50 +11,23 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      password: {
-        type: Sequelize.STRING,
-      },
-      email: {
+      nit: {
         type: Sequelize.STRING,
       },
       address: {
         type: Sequelize.STRING,
       },
-      age: {
-        type: Sequelize.STRING,
-      },
-      datebirth: {
-        type: Sequelize.DATE,
-      },
-      gender: {
-        type: Sequelize.STRING,
-      },
       telephone: {
+        type: Sequelize.STRING,
+      },
+      chief: {
+        type: Sequelize.STRING,
+      },
+      logo: {
         type: Sequelize.STRING,
       },
       photo: {
         type: Sequelize.STRING,
-      },
-      refresh_token: {
-        type: Sequelize.TEXT,
-      },
-      roleId: {
-        type: Sequelize.STRING,
-        references: {
-          model: "Roles",
-          key: "id",
-        },
-        onUpdate: "cascade",
-        onDelete: "cascade",
-      },
-      pondokId: {
-        type: Sequelize.STRING,
-        references: {
-          model: "Pondoks",
-          key: "id",
-        },
-        onUpdate: "cascade",
-        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,
@@ -66,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Users");
+    await queryInterface.dropTable("Masterpondoks");
   },
 };

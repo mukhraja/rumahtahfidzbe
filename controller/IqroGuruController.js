@@ -19,7 +19,7 @@ class IqroGuruController {
   static async listIqroAwal(req, res) {
     try {
       const data = await sequelize.query(
-        "SELECT Gurus.name as namaguru, test.* FROM (SELECT * FROM Iqrogurus ORDER BY Iqrogurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId GROUP BY guruId;",
+        "SELECT Gurus.name as namaguru,Pondoks.name as pondokName, Pondoks.id as pondokId, test.* FROM (SELECT * FROM Iqrogurus ORDER BY Iqrogurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId GROUP BY guruId;",
         {
           model: Iqroguru,
           type: QueryTypes.SELECT,
@@ -39,6 +39,25 @@ class IqroGuruController {
       const { pondokId } = req.params;
       const data = await sequelize.query(
         `SELECT Gurus.name as namaguru, Pondoks.name as pondokName, Pondoks.id as pondokId, test.* FROM (SELECT * FROM Iqrogurus ORDER BY Iqrogurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId WHERE Pondoks.id = '${pondokId}' GROUP BY guruId;`,
+        {
+          model: Iqroguru,
+          type: QueryTypes.SELECT,
+          mapToModel: true,
+          nest: true,
+          raw: true,
+        }
+      );
+      res.status(200).json({ data });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
+  static async listIqroAwalByMasterTahfidz(req, res) {
+    try {
+      const { masterpondokId } = req.params;
+      const data = await sequelize.query(
+        `SELECT Gurus.name as namaguru, Pondoks.name as pondokName, Pondoks.id as pondokId, test.* FROM (SELECT * FROM Iqrogurus ORDER BY Iqrogurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId WHERE Pondoks.masterpondokId = '${masterpondokId}' GROUP BY guruId;`,
         {
           model: Iqroguru,
           type: QueryTypes.SELECT,

@@ -4,6 +4,10 @@ const { uploadMultipleFile } = require("../middleware/uploadFile");
 
 route.get("/", GuruController.getGurus);
 route.get("/:id", GuruController.getguruid);
+route.get(
+  "/bymastertahfidz/:mastertahfidzId",
+  GuruController.getgurubymastertahfidz
+);
 route.get("/byrumahtahfidz/:pondokId", GuruController.getgurubyrumahtahfidz);
 route.post("/", uploadMultipleFile, GuruController.createGuru);
 route.put("/:id", GuruController.updateNoFileGuru);

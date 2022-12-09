@@ -11,6 +11,7 @@ const refreshToken = require("./refreshToken");
 const IqroGuruController = require("./IqroGuruController");
 const SurahPendekGuruController = require("./SurahPendekGuruController");
 const AlquranGuruController = require("./AlquranGuruController");
+const MasterPondokController = require("./MasterPondokController");
 
 module.exports = {
   UserController,
@@ -26,4 +27,5 @@ module.exports = {
   IqroGuruController,
   SurahPendekGuruController,
   AlquranGuruController,
+  MasterPondokController,
 };

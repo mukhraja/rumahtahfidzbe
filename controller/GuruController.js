@@ -48,6 +48,21 @@ class GuruController {
     }
   }
 
+  static async getgurubymastertahfidz(req, res) {
+    try {
+      const { mastertahfidzId } = req.params;
+
+      const newData = await Guru.findAll({
+        where: { "$Pondok.masterpondokId$": mastertahfidzId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: [] });
+    }
+  }
+
   static async createGuru(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -67,6 +82,8 @@ class GuruController {
         pondokId: fields[11].value,
         photo: files[0].file.newFilename,
       };
+
+      console.log(payload);
 
       const newData = await Guru.create(payload);
       res.status(200).json({ data: newData });
@@ -116,12 +133,11 @@ class GuruController {
         address,
         datebirth,
         gender,
-        age,
         ayah,
         ibu,
         mulai_masuk,
         mulai_vakum,
-        roleId,
+        pondokId,
       } = req.body;
 
       const payload = {
@@ -132,12 +148,11 @@ class GuruController {
         address,
         datebirth,
         gender,
-        age,
         ayah,
         ibu,
         mulai_masuk,
         mulai_vakum,
-        roleId,
+        pondokId,
       };
 
       console.log(payload);

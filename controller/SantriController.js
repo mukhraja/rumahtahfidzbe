@@ -43,6 +43,21 @@ class SantriController {
     }
   }
 
+  static async getSantriByMasterTahfiz(req, res) {
+    try {
+      const { mastertahfidzId } = req.params;
+
+      const newData = await Santri.findAll({
+        where: { "$Pondok.masterpondokId$": mastertahfidzId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createSantri(req, res) {
     try {
       const { files, fields } = req.fileAttrb;

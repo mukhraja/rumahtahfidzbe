@@ -40,6 +40,25 @@ class AlquranController {
     }
   }
 
+  static async listAlquranAwalMasterTahfidz(req, res) {
+    try {
+      const { masterpondokId } = req.params;
+      const data = await sequelize.query(
+        `SELECT Gurus.name as namaguru, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Alqurangurus ORDER BY Alqurangurus.id DESC LIMIT 18446744073709551615)AS test JOIN Gurus ON Gurus.id=test.guruId JOIN Pondoks ON Pondoks.id=Gurus.pondokId WHERE Pondoks.masterpondokId = '${masterpondokId}' GROUP BY guruId`,
+        {
+          model: Alquranguru,
+          type: QueryTypes.SELECT,
+          mapToModel: true,
+          nest: true,
+          raw: true,
+        }
+      );
+      res.status(200).json({ data });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
   static async getAlqurans(req, res) {
     try {
       const { id } = req.params;

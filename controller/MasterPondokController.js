@@ -1,10 +1,10 @@
-const { Pondok } = require("../models");
+const { Masterpondok } = require("../models");
 const uuid = require("uuid");
 
-class PondokController {
+class MasterPondokController {
   static async getPondoks(req, res) {
     try {
-      const newData = await Pondok.findAll({
+      const newData = await Masterpondok.findAll({
         include: [
           {
             all: true,
@@ -24,7 +24,7 @@ class PondokController {
     try {
       const { id } = req.params;
 
-      const newData = await Pondok.findOne({
+      const newData = await Masterpondok.findOne({
         where: { id },
         include: [{ all: true }],
       });
@@ -39,23 +39,7 @@ class PondokController {
     try {
       const { id } = req.params;
 
-      const newData = await Pondok.findAll({
-        where: { masterpondokId: id },
-        include: [{ all: true }],
-        order: [["createdAt", "ASC"]],
-      });
-
-      res.status(200).json({ data: newData });
-    } catch (error) {
-      return res.status(400).json({ data: "Data tidak ditemukan" });
-    }
-  }
-
-  static async getPondokRumahTahfidzbyid(req, res) {
-    try {
-      const { id } = req.params;
-
-      const newData = await Pondok.findAll({
+      const newData = await Masterpondok.findAll({
         where: { id },
         include: [{ all: true }],
       });
@@ -76,12 +60,11 @@ class PondokController {
         address: fields[2].value,
         telephone: fields[3].value,
         chief: fields[4].value,
-        masterpondokId: fields[5].value,
         logo: files[0].file.newFilename,
         photo: files[1].file.newFilename,
       };
 
-      const newData = await Pondok.create(payload);
+      const newData = await Masterpondok.create(payload);
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(404).json({ data: error.message });
@@ -105,12 +88,11 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
           logo: files[0].file.newFilename,
           photo: files[1].file.newFilename,
         };
 
-        const newData = await Pondok.update(payload, {
+        const newData = await Masterpondok.update(payload, {
           where: { id },
           returning: true,
         });
@@ -128,11 +110,10 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
           photo: files[0].file.newFilename,
         };
 
-        const newData = await Pondok.update(payload, {
+        const newData = await Masterpondok.update(payload, {
           where: { id },
           returning: true,
         });
@@ -150,11 +131,10 @@ class PondokController {
           address: fields[2].value,
           telephone: fields[3].value,
           chief: fields[4].value,
-          masterpondokId: fields[5].value,
           logo: files[0].file.newFilename,
         };
 
-        const newData = await Pondok.update(payload, {
+        const newData = await Masterpondok.update(payload, {
           where: { id },
           returning: true,
         });
@@ -168,7 +148,7 @@ class PondokController {
   static async updatePondokNoFile(req, res) {
     try {
       const { id } = req.params;
-      const { name, nit, address, telephone, chief, masterpondokId } = req.body;
+      const { name, nit, address, telephone, chief } = req.body;
 
       const payload = {
         name,
@@ -176,10 +156,9 @@ class PondokController {
         address,
         telephone,
         chief,
-        masterpondokId,
       };
 
-      const newData = await Pondok.update(payload, {
+      const newData = await Masterpondok.update(payload, {
         where: { id },
         returning: true,
       });
@@ -191,7 +170,7 @@ class PondokController {
 
   static async deletePondok(req, res) {
     try {
-      const deleteData = await Pondok.destroy({
+      const deleteData = await Masterpondok.destroy({
         where: { id: req.params.id },
       });
       res.status(200).json("delete data" + deleteData + "successfully");
@@ -201,4 +180,4 @@ class PondokController {
   }
 }
 
-module.exports = PondokController;
+module.exports = MasterPondokController;

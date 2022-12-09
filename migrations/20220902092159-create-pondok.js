@@ -28,6 +28,15 @@ module.exports = {
       photo: {
         type: Sequelize.STRING,
       },
+      masterpondokId: {
+        type: Sequelize.STRING,
+        references: {
+          model: "MasterPondoks",
+          key: "id",
+        },
+        onUpdate: "cascade",
+        onDelete: "cascade",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

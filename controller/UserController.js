@@ -1,4 +1,4 @@
-const { Users, Pondok } = require("../models");
+const { Users } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
@@ -50,6 +50,34 @@ class UserController {
     }
   }
 
+  static async getUserByMasterTahfidz(req, res) {
+    try {
+      const { mastertahfidzId } = req.params;
+
+      const newData = await Users.findAll({
+        where: { "$Pondok.masterpondokId$": mastertahfidzId },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
+  static async getUserByAdmin(req, res) {
+    try {
+      const newData = await Users.findAll({
+        where: { roleId: "8b273d68-fe09-422d-a660-af3d8312f884" },
+        include: [{ all: true }],
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
   static async createUser(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
@@ -63,11 +91,12 @@ class UserController {
         datebirth: fields[5].value,
         age: fields[6].value,
         gender: fields[7].value,
-        parent: fields[8].value,
-        roleId: fields[9].value,
+        roleId: fields[8].value,
         pondokId: fields[9].value,
         photo: files[0].file.newFilename,
       };
+
+      console.log(payload);
 
       const newData = await Users.create(payload);
       res.status(200).json({ data: newData });
@@ -87,7 +116,6 @@ class UserController {
         datebirth,
         gender,
         age,
-        parent,
         roleId,
         pondokId,
       } = req.body;
@@ -104,7 +132,6 @@ class UserController {
         datebirth,
         age,
         gender,
-        parent,
         roleId,
         pondokId,
       };
@@ -128,34 +155,54 @@ class UserController {
         datebirth,
         gender,
         age,
-        parent,
         roleId,
         pondokId,
       } = req.body;
 
-      const hashPassword = bcrypt.hashSync(password, salt);
+      console.log(password.length > 2);
+      console.log(password);
 
-      const payload = {
-        name,
-        email,
-        password: hashPassword,
-        telephone,
-        address,
-        datebirth,
-        gender,
-        age,
-        parent,
-        roleId,
-        pondokId,
-      };
+      if (password.length > 2) {
+        const hashPassword = bcrypt.hashSync(password, salt);
+        const payload = {
+          name,
+          email,
+          password: hashPassword,
+          telephone,
+          address,
+          datebirth,
+          gender,
+          age,
+          roleId,
+          pondokId,
+        };
+        console.log("menjalankan ini");
 
-      console.log(payload);
+        const newData = await Users.update(payload, {
+          returning: true,
+          where: { id: req.params.id },
+        });
+        res.status(200).json({ data: newData });
+      } else {
+        const payload = {
+          name,
+          email,
+          telephone,
+          address,
+          datebirth,
+          gender,
+          age,
+          roleId,
+          pondokId,
+        };
+        console.log("menjalankan ini tak ade");
 
-      const newData = await Users.update(payload, {
-        returning: true,
-        where: { id: req.params.id },
-      });
-      res.status(200).json({ data: newData });
+        const newData = await Users.update(payload, {
+          returning: true,
+          where: { id: req.params.id },
+        });
+        res.status(200).json({ data: newData });
+      }
     } catch (error) {
       return res.status(404).json({ data: error.message });
     }
@@ -163,31 +210,57 @@ class UserController {
 
   static async updateUser(req, res) {
     try {
+      const { id } = req.params;
+
       console.log("di update user");
       const { files, fields } = req.fileAttrb;
 
-      const hashPassword = bcrypt.hashSync(fields[3].value, salt);
+      console.log(fields[2].value.length);
 
-      const payload = {
-        name: fields[1].value,
-        email: fields[2].value,
-        password: hashPassword,
-        telephone: fields[4].value,
-        address: fields[5].value,
-        datebirth: fields[6].value,
-        age: fields[8].value,
-        gender: fields[7].value,
-        parent: fields[9].value,
-        roleId: fields[10].value,
-        pondokId: fields[11].value,
-        photo: files[0].file.newFilename,
-      };
+      if (fields[2].value.length > 2) {
+        const hashPassword = bcrypt.hashSync(fields[3].value, salt);
 
-      const newData = await Users.update(payload, {
-        where: { id: req.params.id },
-        returning: true,
-      });
-      res.status(200).json({ data: newData });
+        const payload = {
+          name: fields[0].value,
+          email: fields[1].value,
+          password: hashPassword,
+          telephone: fields[3].value,
+          address: fields[4].value,
+          datebirth: fields[5].value,
+          age: fields[6].value,
+          gender: fields[7].value,
+          roleId: fields[8].value,
+          pondokId: fields[9].value,
+          photo: files[0].file.newFilename,
+        };
+
+        const newData = await Users.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      } else {
+        const payload = {
+          name: fields[0].value,
+          email: fields[1].value,
+          telephone: fields[3].value,
+          address: fields[4].value,
+          datebirth: fields[5].value,
+          age: fields[6].value,
+          gender: fields[7].value,
+          roleId: fields[8].value,
+          pondokId: fields[9].value,
+          photo: files[0].file.newFilename,
+        };
+
+        const newData = await Users.update(payload, {
+          where: { id },
+          returning: true,
+        });
+
+        console.log(newData);
+        res.status(200).json({ data: newData });
+      }
     } catch (error) {
       return res.status(404).json({ data: error.message });
     }
@@ -222,6 +295,7 @@ class UserController {
         const photo = user[0].photo;
         const logotahfidz = user[0].Pondok.logo;
         const pondokId = user[0].pondokId;
+        const masterpondokId = user[0].Pondok.masterpondokId;
         const accessToken = jwt.sign(
           { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.ACCESS_TOKEN_SECRET,
@@ -255,6 +329,7 @@ class UserController {
             roleName,
             userId,
             pondokId,
+            masterpondokId,
           },
           token: accessToken,
         });
