@@ -20,7 +20,5 @@ app.use(express.json());
 
 app.use(routes);
 
-app.listen(PORT, HOSTNAME, () =>
-  console.log(`http://listening:${PORT}/v1/api`)
-);
+app.listen(PORT, () => console.log(`http://listening:${PORT}/v1/api`));
 // app.listen(PORT, () => console.log(`http://localhost:${PORT}/v1/api`));
