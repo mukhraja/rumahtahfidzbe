@@ -11,8 +11,6 @@ const app = express();
 
 // const PORT = process.env.PORT || 2000;
 
-const HOSTNAME = "143.198.200.178";
-
 const PORT = 3000;
 
 app.use(cors("*"));
@@ -23,6 +21,6 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(PORT, HOSTNAME, () =>
-  console.log(`http://${HOSTNAME}:${PORT}/v1/api`)
+  console.log(`http://listening:${PORT}/v1/api`)
 );
 // app.listen(PORT, () => console.log(`http://localhost:${PORT}/v1/api`));
