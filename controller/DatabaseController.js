@@ -1,16 +1,17 @@
 const mysqldump = require("mysqldump");
 const Importer = require("mysql-import");
 const path = require("path");
+require("dotenv").config();
 
 class DatabaseController {
   static async exportDatabase(req, res) {
     try {
       await mysqldump({
         connection: {
-          host: "localhost",
-          user: "root",
-          password: "",
-          database: "rumahtahfiz",
+          host: process.env.DB_HOST,
+          user: process.env.DB_USERNAME,
+          password: process.env.DB_PASSWORD,
+          database: process.env.DB_DATABASE,
         },
         dump: { schema: { table: { dropIfExist: true } } },
         dumpToFile: path.join(__dirname, "../backupdatabase/rumahtahfiz.sql"),
