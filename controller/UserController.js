@@ -1,7 +1,6 @@
 const { Users } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
-const salt = bcrypt.hashSync(10);
 const jwt = require("jsonwebtoken");
 const { Model } = require("sequelize");
 
@@ -83,7 +82,7 @@ class UserController {
     try {
       const { files, fields } = req.fileAttrb;
 
-      const hashPassword = bcrypt.hashSync(fields[2].value, salt);
+      const hashPassword = bcrypt.hashSync(fields[2].value, 10);
 
       const payload = {
         id: uuid.v4(),
