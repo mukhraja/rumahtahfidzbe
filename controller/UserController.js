@@ -82,11 +82,14 @@ class UserController {
   static async createUser(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
+
+      const hashPassword = bcrypt.hashSync(fields[2].value, salt);
+
       const payload = {
         id: uuid.v4(),
         name: fields[0].value,
         email: fields[1].value,
-        password: fields[2].value,
+        password: hashPassword,
         telephone: fields[3].value,
         address: fields[4].value,
         datebirth: fields[5].value,
