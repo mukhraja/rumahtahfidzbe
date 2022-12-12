@@ -84,6 +84,8 @@ class UserController {
 
       const password = fields[2].value;
 
+      console.log(password);
+
       const hashPassword = bcrypt.hashSync(password, 10);
 
       const payload = {
