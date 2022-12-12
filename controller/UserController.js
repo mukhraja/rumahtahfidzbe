@@ -82,7 +82,9 @@ class UserController {
     try {
       const { files, fields } = req.fileAttrb;
 
-      const hashPassword = bcrypt.hashSync(String(fields[2].value), 10);
+      const password = fields[2].value;
+
+      const hashPassword = bcrypt.hashSync(password, 10);
 
       const payload = {
         id: uuid.v4(),
@@ -216,7 +218,8 @@ class UserController {
       const { files, fields } = req.fileAttrb;
 
       if (fields[2].value.length > 2) {
-        const hashPassword = bcrypt.hashSync(String(fields[3].value), 10);
+        const password = fields[3].value;
+        const hashPassword = bcrypt.hashSync(password, 10);
 
         const payload = {
           name: fields[0].value,
