@@ -82,7 +82,7 @@ class UserController {
     try {
       const { files, fields } = req.fileAttrb;
 
-      const hashPassword = bcrypt.hashSync(fields[2].value, 10);
+      const hashPassword = bcrypt.hashSync(String(fields[2].value), 10);
 
       const payload = {
         id: uuid.v4(),
@@ -123,7 +123,7 @@ class UserController {
         pondokId,
       } = req.body;
 
-      const hashPassword = bcrypt.hashSync(password, salt);
+      const hashPassword = bcrypt.hashSync(password, 10);
 
       const payload = {
         id: uuid.v4(),
@@ -166,7 +166,7 @@ class UserController {
       console.log(password);
 
       if (password.length > 2) {
-        const hashPassword = bcrypt.hashSync(password, salt);
+        const hashPassword = bcrypt.hashSync(password, 10);
         const payload = {
           name,
           email,
@@ -179,7 +179,6 @@ class UserController {
           roleId,
           pondokId,
         };
-        console.log("menjalankan ini");
 
         const newData = await Users.update(payload, {
           returning: true,
@@ -214,14 +213,10 @@ class UserController {
   static async updateUser(req, res) {
     try {
       const { id } = req.params;
-
-      console.log("di update user");
       const { files, fields } = req.fileAttrb;
 
-      console.log(fields[2].value.length);
-
       if (fields[2].value.length > 2) {
-        const hashPassword = bcrypt.hashSync(fields[3].value, salt);
+        const hashPassword = bcrypt.hashSync(String(fields[3].value), 10);
 
         const payload = {
           name: fields[0].value,
