@@ -1,7 +1,7 @@
 const { Users } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
-const salt = bcrypt.genSaltSync(10);
+const salt = bcrypt.hashSync(10);
 const jwt = require("jsonwebtoken");
 const { Model } = require("sequelize");
 
