@@ -35,10 +35,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       mulai_masuk: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
       mulai_vakum: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
       photo: {
         type: Sequelize.STRING,

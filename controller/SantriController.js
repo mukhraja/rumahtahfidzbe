@@ -61,25 +61,52 @@ class SantriController {
   static async createSantri(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
-      const payload = {
-        id: uuid.v4(),
-        name: fields[0].value,
-        nis: fields[1].value,
-        tempat: fields[2].value,
-        datebirth: fields[3].value,
-        gender: fields[4].value,
-        address: fields[5].value,
-        ayah: fields[6].value,
-        ibu: fields[7].value,
-        telephone: fields[8].value,
-        mulai_masuk: fields[9].value,
-        mulai_vakum: fields[10].value,
-        pondokId: fields[11].value,
-        photo: files[0].file.newFilename,
-      };
 
-      const newData = await Santri.create(payload);
-      res.status(200).json({ data: newData });
+      if (fields[10].value.length > 1) {
+        const payload = {
+          id: uuid.v4(),
+          name: fields[0].value,
+          nis: fields[1].value,
+          tempat: fields[2].value,
+          datebirth: fields[3].value,
+          gender: fields[4].value,
+          address: fields[5].value,
+          ayah: fields[6].value,
+          ibu: fields[7].value,
+          telephone: fields[8].value,
+          mulai_masuk: fields[9].value,
+          mulai_vakum: fields[10].value,
+          pondokId: fields[11].value,
+          photo: files[0].file.newFilename,
+        };
+
+        console.log(payload);
+
+        const newData = await Santri.create(payload);
+        res.status(200).json({ data: newData });
+      } else {
+        const payload = {
+          id: uuid.v4(),
+          name: fields[0].value,
+          nis: fields[1].value,
+          tempat: fields[2].value,
+          datebirth: fields[3].value,
+          gender: fields[4].value,
+          address: fields[5].value,
+          ayah: fields[6].value,
+          ibu: fields[7].value,
+          telephone: fields[8].value,
+          mulai_masuk: fields[9].value,
+          mulai_vakum: null,
+          pondokId: fields[11].value,
+          photo: files[0].file.newFilename,
+        };
+
+        console.log(payload);
+
+        const newData = await Santri.create(payload);
+        res.status(200).json({ data: newData });
+      }
     } catch (error) {
       return res.status(404).json({ data: error.message });
     }
@@ -90,27 +117,51 @@ class SantriController {
       const { files, fields } = req.fileAttrb;
       const { id } = req.params;
 
-      const payload = {
-        name: fields[0].value,
-        nis: fields[1].value,
-        tempat: fields[2].value,
-        datebirth: fields[3].value,
-        gender: fields[4].value,
-        address: fields[5].value,
-        ayah: fields[6].value,
-        ibu: fields[7].value,
-        telephone: fields[8].value,
-        mulai_masuk: fields[9].value,
-        mulai_vakum: fields[10].value,
-        pondokId: fields[11].value,
-        photo: files[0].file.newFilename,
-      };
+      if (fields[10].value == "Invalid date") {
+        const payload = {
+          name: fields[0].value,
+          nis: fields[1].value,
+          tempat: fields[2].value,
+          datebirth: fields[3].value,
+          gender: fields[4].value,
+          address: fields[5].value,
+          ayah: fields[6].value,
+          ibu: fields[7].value,
+          telephone: fields[8].value,
+          mulai_masuk: fields[9].value,
+          mulai_vakum: null,
+          pondokId: fields[11].value,
+          photo: files[0].file.newFilename,
+        };
 
-      const newData = await Santri.update(payload, {
-        where: { id },
-        returning: true,
-      });
-      res.status(200).json({ data: newData });
+        const newData = await Santri.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      } else {
+        const payload = {
+          name: fields[0].value,
+          nis: fields[1].value,
+          tempat: fields[2].value,
+          datebirth: fields[3].value,
+          gender: fields[4].value,
+          address: fields[5].value,
+          ayah: fields[6].value,
+          ibu: fields[7].value,
+          telephone: fields[8].value,
+          mulai_masuk: fields[9].value,
+          mulai_vakum: fields[10].value,
+          pondokId: fields[11].value,
+          photo: files[0].file.newFilename,
+        };
+
+        const newData = await Santri.update(payload, {
+          where: { id },
+          returning: true,
+        });
+        res.status(200).json({ data: newData });
+      }
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });
     }
@@ -132,25 +183,48 @@ class SantriController {
         pondokId,
       } = req.body;
 
-      const payload = {
-        name,
-        nis,
-        datebirth,
-        gender,
-        address,
-        ayah,
-        ibu,
-        telephone,
-        mulai_masuk,
-        mulai_vakum,
-        pondokId,
-      };
+      if (mulai_vakum.length > 1) {
+        const payload = {
+          name,
+          nis,
+          datebirth,
+          gender,
+          address,
+          ayah,
+          ibu,
+          telephone,
+          mulai_masuk,
+          mulai_vakum,
+          pondokId,
+        };
 
-      const newData = await Santri.update(payload, {
-        returning: true,
-        where: { id: req.params.id },
-      });
-      res.status(200).json({ data: newData });
+        const newData = await Santri.update(payload, {
+          returning: true,
+          where: { id: req.params.id },
+        });
+
+        res.status(200).json({ data: newData });
+      } else {
+        const payload = {
+          name,
+          nis,
+          datebirth,
+          gender,
+          address,
+          ayah,
+          ibu,
+          telephone,
+          mulai_masuk,
+          mulai_vakum: null,
+          pondokId,
+        };
+
+        const newData = await Santri.update(payload, {
+          returning: true,
+          where: { id: req.params.id },
+        });
+        res.status(200).json({ data: newData });
+      }
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });
     }

@@ -158,6 +158,7 @@ class MasterPondokController {
         chief,
       };
 
+      console.log(payload);
       const newData = await Masterpondok.update(payload, {
         where: { id },
         returning: true,
