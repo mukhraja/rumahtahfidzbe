@@ -83,13 +83,41 @@ class UserController {
       const { files, fields } = req.fileAttrb;
 
       const password = fields[2].value;
-
-      console.log(password);
-
       const hashPassword = bcrypt.hashSync(password, 10);
 
       const payload = {
         id: uuid.v4(),
+        name: fields[0].value,
+        email: fields[1].value,
+        password: hashPassword,
+        telephone: fields[3].value,
+        address: fields[4].value,
+        datebirth: fields[5].value,
+        age: fields[6].value,
+        gender: fields[7].value,
+        roleId: fields[8].value,
+        pondokId: fields[9].value,
+        photo: files[0].file.newFilename,
+      };
+
+      console.log(payload);
+
+      const newData = await Users.create(payload);
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
+  static async createUserSantri(req, res) {
+    try {
+      const { files, fields } = req.fileAttrb;
+
+      const password = fields[2].value;
+      const hashPassword = bcrypt.hashSync(password, 10);
+
+      const payload = {
+        id: fields[10].value,
         name: fields[0].value,
         email: fields[1].value,
         password: hashPassword,
@@ -150,6 +178,45 @@ class UserController {
     }
   }
 
+  static async createNoFileUserSantri(req, res) {
+    try {
+      const {
+        id,
+        name,
+        email,
+        password,
+        telephone,
+        address,
+        datebirth,
+        gender,
+        age,
+        roleId,
+        pondokId,
+      } = req.body;
+
+      const hashPassword = bcrypt.hashSync(password, 10);
+
+      const payload = {
+        id,
+        name,
+        email,
+        password: hashPassword,
+        telephone,
+        address,
+        datebirth,
+        age,
+        gender,
+        roleId,
+        pondokId,
+      };
+
+      const newData = await Users.create(payload);
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
   static async updateNoFileUser(req, res) {
     console.log("sampai disini");
     try {
@@ -183,6 +250,8 @@ class UserController {
           roleId,
           pondokId,
         };
+
+        console.log(payload);
 
         const newData = await Users.update(payload, {
           returning: true,
@@ -219,6 +288,8 @@ class UserController {
       const { id } = req.params;
       const { files, fields } = req.fileAttrb;
 
+      console.log(fields[2].value.length);
+
       if (fields[2].value.length > 2) {
         const password = fields[3].value;
         const hashPassword = bcrypt.hashSync(password, 10);
@@ -236,6 +307,8 @@ class UserController {
           pondokId: fields[9].value,
           photo: files[0].file.newFilename,
         };
+
+        console.log(payload);
 
         const newData = await Users.update(payload, {
           where: { id },
@@ -302,12 +375,12 @@ class UserController {
         const accessToken = jwt.sign(
           { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "1d" }
+          { expiresIn: "365d" }
         );
         const refresh_token = jwt.sign(
           { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "1d" }
+          { expiresIn: "365d" }
         );
 
         const cek = await Users.update(

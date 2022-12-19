@@ -12,6 +12,7 @@ const iqroguruRoute = require("./iqroguruRoute");
 const surahpendekguruRoute = require("./surahpendekguruRoute");
 const alquranguruRoute = require("./alquranguruRoute");
 const masterpondokRoute = require("./masterpondokRoute");
+const usersantriRoute = require("./usersantriRoute");
 const route = require("express").Router();
 
 route.use("/newbackend/v1/api/user", userRoute);
@@ -27,6 +28,7 @@ route.use("/newbackend/v1/api/role", roleRoute);
 route.use("/newbackend/v1/api/iqroguru", iqroguruRoute);
 route.use("/newbackend/v1/api/surahpendekguru", surahpendekguruRoute);
 route.use("/newbackend/v1/api/alquranguru", alquranguruRoute);
+route.use("/newbackend/v1/api/usersantri", usersantriRoute);
 
 route.use("/newbackend/v1/api/gambar", imageRoute);
 

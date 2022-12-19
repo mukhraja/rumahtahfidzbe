@@ -52,6 +52,15 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "set null",
       },
+      userId: {
+        type: Sequelize.STRING,
+        references: {
+          model: "Users",
+          key: "id",
+        },
+        onUpdate: "set null",
+        onDelete: "set null",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

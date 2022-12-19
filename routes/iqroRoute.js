@@ -8,6 +8,7 @@ route.get(
   "/bymastertahfidz/:masterpondokId",
   IqroController.listIqroAwalByMasterTahfidz
 );
+route.get("/byuser/:userId", IqroController.listIqroAwalRumahTahfidzByUserId);
 route.get("/list/:id", IqroController.getIqros);
 route.get("/:id", IqroController.getIqro);
 route.put("/:id", IqroController.updateIqros);

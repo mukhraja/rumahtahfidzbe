@@ -11,6 +11,7 @@ route.get(
   "/bymastertahfidz/:masterpondokId",
   SurahPendekController.listSurahPendekAwalByMasterTahfidz
 );
+route.get("/byuser/:userId", SurahPendekController.listSurahPendekAwalByUserId);
 route.get("/list/:id", SurahPendekController.getSurahPendeks);
 route.get("/:id", SurahPendekController.getSurahPendek);
 route.put("/:id", SurahPendekController.updateSurahpendek);

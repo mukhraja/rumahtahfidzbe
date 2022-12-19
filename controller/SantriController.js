@@ -37,6 +37,83 @@ class SantriController {
         include: [{ all: true }],
       });
 
+      const databaru = [];
+
+      for (let index = 0; index < newData.length; index++) {
+        const element = {
+          label: newData[index].name,
+          value: newData[index].id,
+        };
+        databaru.push(element);
+      }
+
+      console.log(databaru);
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
+  static async getSantriByUserSantri(req, res) {
+    try {
+      const { userId } = req.params;
+
+      const newData = await Santri.findAll({
+        where: { userId },
+        include: [{ all: true }],
+      });
+
+      const databaru = [];
+
+      for (let index = 0; index < newData.length; index++) {
+        const element = {
+          label: newData[index].name,
+          value: newData[index].id,
+        };
+        databaru.push(element);
+      }
+
+      console.log(databaru);
+      res.status(200).json({ data: databaru });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
+  static async getSantriByRumahTahfizDropdown(req, res) {
+    try {
+      const { pondokId } = req.params;
+
+      const newData = await Santri.findAll({
+        where: { pondokId },
+        include: [{ all: true }],
+      });
+
+      const databaru = [];
+
+      for (let index = 0; index < newData.length; index++) {
+        const element = {
+          label: newData[index].name,
+          value: newData[index].id,
+        };
+        databaru.push(element);
+      }
+
+      res.status(200).json({ data: databaru });
+    } catch (error) {
+      return res.status(400).json({ data: "Data tidak ditemukan" });
+    }
+  }
+
+  static async getUserByUser(req, res) {
+    try {
+      const { userId } = req.params;
+
+      const newData = await Santri.findAll({
+        where: { UserId: userId },
+        include: [{ all: true }],
+      });
+
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(400).json({ data: "Data tidak ditemukan" });
@@ -227,6 +304,27 @@ class SantriController {
       }
     } catch (error) {
       return res.status(404).json({ data: "Pastikan Semua data benar" });
+    }
+  }
+
+  static async updateSantriUser(req, res) {
+    try {
+      const { userId } = req.body;
+
+      const payload = {
+        UserId: userId,
+      };
+
+      console.log(payload);
+
+      const newData = await Santri.update(payload, {
+        returning: true,
+        where: { id: req.params.id },
+      });
+
+      res.status(200).json({ data: newData });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
     }
   }
 

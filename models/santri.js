@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       Santri.hasMany(models.Surahpendeksantri);
       Santri.hasMany(models.Alquransantri);
       Santri.belongsTo(models.Pondok, { foreignKey: "pondokId" });
-      Santri.belongsToMany(models.Users, { through: models.UserSantri });
+      Santri.belongsTo(models.Users, { foreignKey: "userId" });
+      // Santri.belongsToMany(models.Users, { through: models.UserSantri });
     }
   }
   Santri.init(
@@ -35,6 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       mulai_masuk: DataTypes.DATE,
       mulai_vakum: DataTypes.DATE,
       pondokId: DataTypes.STRING,
+      userId: DataTypes.STRING,
     },
     {
       sequelize,

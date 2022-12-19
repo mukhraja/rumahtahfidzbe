@@ -13,7 +13,9 @@ route.get(
 );
 route.put("/:id", UserController.updateNoFileUser);
 route.post("/", uploadMultipleFile, UserController.createUser);
+route.post("/usersantri", uploadMultipleFile, UserController.createUserSantri);
 route.post("/data", UserController.createNoFileUser);
+route.post("/data/usersantri", UserController.createNoFileUserSantri);
 route.put("/data/:id", uploadMultipleFile, UserController.updateUser);
 route.delete("/:id", UserController.deleteUser);
 route.post("/login", UserController.login);

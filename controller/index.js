@@ -12,6 +12,7 @@ const IqroGuruController = require("./IqroGuruController");
 const SurahPendekGuruController = require("./SurahPendekGuruController");
 const AlquranGuruController = require("./AlquranGuruController");
 const MasterPondokController = require("./MasterPondokController");
+const UserSantriController = require("./UserSantriController");
 
 module.exports = {
   UserController,
@@ -28,4 +29,5 @@ module.exports = {
   SurahPendekGuruController,
   AlquranGuruController,
   MasterPondokController,
+  UserSantriController,
 };

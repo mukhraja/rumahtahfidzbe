@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Users.belongsTo(models.Roles, { foreignKey: "roleId" });
-      Users.belongsToMany(models.Santri, { through: models.UserSantri });
+      // Users.belongsToMany(models.Santri, { through: models.UserSantri });
+      Users.hasMany(models.Santri);
       Users.belongsTo(models.Pondok, { foreignKey: "pondokId" });
     }
   }

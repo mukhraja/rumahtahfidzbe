@@ -72,6 +72,25 @@ class SurahPendekController {
     }
   }
 
+  static async listSurahPendekAwalByUserId(req, res) {
+    try {
+      const { userId } = req.params;
+      const data = await sequelize.query(
+        `SELECT Santris.name as namasantri, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Surahpendeksantris ORDER BY Surahpendeksantris.id DESC LIMIT 18446744073709551615)AS test JOIN Santris ON Santris.id=test.santriId JOIN Pondoks ON Pondoks.id=Santris.pondokId JOIN Users on Users.id = Santris.userId where Users.id = "${userId}" GROUP BY santriId;`,
+        {
+          model: Surahpendeksantri,
+          type: QueryTypes.SELECT,
+          mapToModel: true,
+          nest: true,
+          raw: true,
+        }
+      );
+      res.status(200).json({ data });
+    } catch (error) {
+      return res.status(404).json({ data: error.message });
+    }
+  }
+
   static async getSurahPendek(req, res) {
     try {
       const { id } = req.params;

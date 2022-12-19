@@ -11,6 +11,7 @@ route.get(
   "/bymastertahfidz/:masterpondokId",
   AlquranController.listAlquranAwalByMasterTahfidz
 );
+route.get("/byuser/:userId", AlquranController.listAlquranAwalByUserId);
 route.get("/list/:id", AlquranController.getAlqurans);
 route.get("/:id", AlquranController.getAlquran);
 route.put("/:id", AlquranController.updateAlquran);
