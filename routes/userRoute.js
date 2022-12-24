@@ -1,7 +1,7 @@
 const { UserController, refreshToken } = require("../controller");
 const route = require("express").Router();
 const verifyToken = require("../middleware/verifyToken");
-const { uploadMultipleFile } = require("../middleware/uploadFile");
+const { uploadMultipleFileUser } = require("../middleware/uploadFileUser");
 
 route.get("/", UserController.getUsers);
 route.get("/byadmin", UserController.getUserByAdmin);
@@ -12,11 +12,15 @@ route.get(
   UserController.getUserByMasterTahfidz
 );
 route.put("/:id", UserController.updateNoFileUser);
-route.post("/", uploadMultipleFile, UserController.createUser);
-route.post("/usersantri", uploadMultipleFile, UserController.createUserSantri);
+route.post("/", uploadMultipleFileUser, UserController.createUser);
+route.post(
+  "/usersantri",
+  uploadMultipleFileUser,
+  UserController.createUserSantri
+);
 route.post("/data", UserController.createNoFileUser);
 route.post("/data/usersantri", UserController.createNoFileUserSantri);
-route.put("/data/:id", uploadMultipleFile, UserController.updateUser);
+route.put("/data/:id", uploadMultipleFileUser, UserController.updateUser);
 route.delete("/:id", UserController.deleteUser);
 route.post("/login", UserController.login);
 route.get("/token", refreshToken.getRefreshToken);

@@ -67,7 +67,8 @@ class MasterPondokController {
       const newData = await Masterpondok.create(payload);
       res.status(200).json({ data: newData });
     } catch (error) {
-      return res.status(404).json({ data: error.message });
+      console.log(error.message);
+      res.status(404).json({ data: error.message });
     }
   }
 

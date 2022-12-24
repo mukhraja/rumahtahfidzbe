@@ -15,6 +15,8 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
       address: {
         type: Sequelize.STRING,

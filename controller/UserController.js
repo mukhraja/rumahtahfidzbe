@@ -233,9 +233,6 @@ class UserController {
         pondokId,
       } = req.body;
 
-      console.log(password.length > 2);
-      console.log(password);
-
       if (password.length > 2) {
         const hashPassword = bcrypt.hashSync(password, 10);
         const payload = {
@@ -308,8 +305,6 @@ class UserController {
           photo: files[0].file.newFilename,
         };
 
-        console.log(payload);
-
         const newData = await Users.update(payload, {
           where: { id },
           returning: true,
@@ -329,6 +324,8 @@ class UserController {
           photo: files[0].file.newFilename,
         };
 
+        console.log(payload);
+
         const newData = await Users.update(payload, {
           where: { id },
           returning: true,
@@ -338,6 +335,7 @@ class UserController {
         res.status(200).json({ data: newData });
       }
     } catch (error) {
+      console.log(error.message);
       return res.status(404).json({ data: error.message });
     }
   }

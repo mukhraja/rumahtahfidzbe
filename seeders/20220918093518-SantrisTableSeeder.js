@@ -36,7 +36,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008a9",
           name: "Yuliana Safiri",
-          nis: "20220907",
+          nis: "20220908",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -55,7 +55,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b1",
           name: "Muhammad Panji Kurniawan",
-          nis: "20220907",
+          nis: "20220909",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -74,7 +74,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b2",
           name: "Marniati",
-          nis: "20220907",
+          nis: "20220910",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -93,7 +93,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b3",
           name: "Mahessa",
-          nis: "20220907",
+          nis: "20220911",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -112,7 +112,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b4",
           name: "Irfan",
-          nis: "20220907",
+          nis: "20220912",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -131,7 +131,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b5",
           name: "Fadlan",
-          nis: "20220907",
+          nis: "20220913",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -150,7 +150,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b6",
           name: "Nizar",
-          nis: "20220907",
+          nis: "20220914",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -169,7 +169,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b7",
           name: "Ilham",
-          nis: "20220907",
+          nis: "20220915",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -188,7 +188,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b8",
           name: "Sabil",
-          nis: "20220907",
+          nis: "20220916",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -206,7 +206,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008b9",
           name: "MitaZu",
-          nis: "20220907",
+          nis: "20220917",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -224,7 +224,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c2",
           name: "Ulfa",
-          nis: "20220907",
+          nis: "20220918",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -242,7 +242,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c3",
           name: "Nukhi",
-          nis: "20220907",
+          nis: "20220919",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -260,7 +260,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c4",
           name: "Elfira",
-          nis: "20220907",
+          nis: "20220920",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -278,7 +278,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c5",
           name: "Kangkung",
-          nis: "20220907",
+          nis: "20220921",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -296,7 +296,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c6",
           name: "Bayam",
-          nis: "20220907",
+          nis: "20220922",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -314,7 +314,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c7",
           name: "Singkong",
-          nis: "20220907",
+          nis: "20220923",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -332,7 +332,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c8",
           name: "Wortel",
-          nis: "20220907",
+          nis: "20220924",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -350,7 +350,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c9",
           name: "Apel",
-          nis: "20220907",
+          nis: "20220925",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -368,7 +368,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c10",
           name: "Mangga",
-          nis: "20220907",
+          nis: "20220926",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -386,7 +386,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c11",
           name: "Manggis",
-          nis: "20220907",
+          nis: "20220927",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -404,7 +404,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c12",
           name: "Anggur",
-          nis: "20220907",
+          nis: "20220928",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -422,7 +422,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c13",
           name: "Nangka",
-          nis: "20220907",
+          nis: "20220929",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -440,7 +440,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c14",
           name: "Semangka",
-          nis: "20220907",
+          nis: "20220930",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -458,7 +458,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c15",
           name: "Durian",
-          nis: "20220907",
+          nis: "20220931",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",
@@ -476,7 +476,7 @@ module.exports = {
         {
           id: "4aeb9b02-0ceb-4a52-9d55-38ad38f008c16",
           name: "Merkisa",
-          nis: "20220907",
+          nis: "20220932",
           datebirth: new Date(),
           gender: "Pria",
           tempat: "Padang",

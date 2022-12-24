@@ -37,7 +37,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50457",
           name: "cendrawasih",
-          niu: "RTU0003",
+          niu: "RTU0004",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -56,7 +56,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50458",
           name: "kutilang",
-          niu: "RTU0003",
+          niu: "RTU0005",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -75,7 +75,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50459",
           name: "pipit",
-          niu: "RTU0003",
+          niu: "RTU0006",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -94,7 +94,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50460",
           name: "Adriansyah",
-          niu: "RTU0001",
+          niu: "RTU0007",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -113,7 +113,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50461",
           name: "Putra Dwa",
-          niu: "RTU0002",
+          niu: "RTU0008",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -132,7 +132,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50462",
           name: "Candra Dimuka",
-          niu: "RTU0002",
+          niu: "RTU0009",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -151,7 +151,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50463",
           name: "Syailendra",
-          niu: "RTU0003",
+          niu: "RTU0010",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -170,7 +170,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50464",
           name: "Sulaiman",
-          niu: "RTU0004",
+          niu: "RTU0011",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -189,7 +189,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50465",
           name: "Aliansyah",
-          niu: "RTU0005",
+          niu: "RTU0012",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -208,7 +208,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50466",
           name: "Batara Dwi",
-          niu: "RTU0006",
+          niu: "RTU0013",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -227,7 +227,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50467",
           name: "Mahduf Munir",
-          niu: "RTU0006",
+          niu: "RTU0014",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -246,7 +246,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50468",
           name: "Hola Kasih",
-          niu: "RTU0007",
+          niu: "RTU0015",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -264,8 +264,8 @@ module.exports = {
         },
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50480",
-          name: "Dwi Asmarani",
-          niu: "RTU0008",
+          name: "Mutiara",
+          niu: "RTU0016",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -284,7 +284,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50469",
           name: "Dwi hasanaha",
-          niu: "RTU0009",
+          niu: "RTU0017",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -303,7 +303,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50470",
           name: "Yansana alika",
-          niu: "RTU0010",
+          niu: "RTU0018",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -322,7 +322,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50471",
           name: "Merak",
-          niu: "RTU0010",
+          niu: "RTU0019",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -341,7 +341,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50472",
           name: "Camar",
-          niu: "RTU0010",
+          niu: "RTU0020",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",
@@ -360,7 +360,7 @@ module.exports = {
         {
           id: "245d57c6-0076-44ea-9876-dd2d3da50473",
           name: "Wasamanda",
-          niu: "RTU0010",
+          niu: "RTU0021",
           tempat: "Padang",
           datebirth: new Date(),
           gender: "Pria",

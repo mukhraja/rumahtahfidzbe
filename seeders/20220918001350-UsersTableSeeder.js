@@ -108,9 +108,9 @@ module.exports = {
         },
         {
           id: "1c7258f8-0ac0-4c36-aba2-94ba3f4f3043",
-          name: "Donatur",
+          name: "Donatur2",
           password: bcrypt.hashSync("admin123", 10),
-          email: "donatur@gmail.com",
+          email: "donatur2@gmail.com",
           address: "Jalan Samiban Bayam Lorong Ayam",
           telephone: "082177751041",
           age: "24",

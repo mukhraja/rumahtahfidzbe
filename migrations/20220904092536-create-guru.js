@@ -12,6 +12,8 @@ module.exports = {
       },
       niu: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
       tempat: {
         type: Sequelize.STRING,

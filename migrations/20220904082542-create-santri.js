@@ -12,6 +12,8 @@ module.exports = {
       },
       nis: {
         type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
       },
       datebirth: {
         type: Sequelize.DATE,
