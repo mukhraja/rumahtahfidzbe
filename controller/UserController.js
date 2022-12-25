@@ -288,7 +288,7 @@ class UserController {
       console.log(fields[2].value.length);
 
       if (fields[2].value.length > 2) {
-        const password = fields[3].value;
+        const password = fields[2].value;
         const hashPassword = bcrypt.hashSync(password, 10);
 
         const payload = {
@@ -305,12 +305,15 @@ class UserController {
           photo: files[0].file.newFilename,
         };
 
+        console.log(payload);
+
         const newData = await Users.update(payload, {
           where: { id },
           returning: true,
         });
         res.status(200).json({ data: newData });
       } else {
+        console.log("ubah password");
         const payload = {
           name: fields[0].value,
           email: fields[1].value,

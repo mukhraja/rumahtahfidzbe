@@ -189,7 +189,9 @@ class GuruController {
         pondokId,
       } = req.body;
 
-      if (mulai_vakum.length > 1) {
+      console.log(mulai_vakum.length);
+
+      if (mulai_vakum == "Invalid date" || mulai_vakum.length < 1) {
         const payload = {
           name,
           niu,
@@ -201,7 +203,7 @@ class GuruController {
           ayah,
           ibu,
           mulai_masuk,
-          mulai_vakum,
+          mulai_vakum: null,
           pondokId,
         };
 
@@ -224,7 +226,7 @@ class GuruController {
           ayah,
           ibu,
           mulai_masuk,
-          mulai_vakum: null,
+          mulai_vakum,
           pondokId,
         };
 

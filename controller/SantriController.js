@@ -260,7 +260,7 @@ class SantriController {
         pondokId,
       } = req.body;
 
-      if (mulai_vakum.length > 1) {
+      if (mulai_vakum == "Invalid date" || mulai_vakum.length < 1) {
         const payload = {
           name,
           nis,
@@ -271,7 +271,7 @@ class SantriController {
           ibu,
           telephone,
           mulai_masuk,
-          mulai_vakum,
+          mulai_vakum: null,
           pondokId,
         };
 
@@ -292,7 +292,7 @@ class SantriController {
           ibu,
           telephone,
           mulai_masuk,
-          mulai_vakum: null,
+          mulai_vakum,
           pondokId,
         };
 
