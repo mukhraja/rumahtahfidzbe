@@ -1,4 +1,4 @@
-const { Users } = require("../models");
+const { Users, Pondok, Masterpondok, Santri } = require("../models");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -26,7 +26,17 @@ class UserController {
 
       const newData = await Users.findOne({
         where: { id },
-        include: [{ all: true }],
+        include: [
+          { model: Santri },
+          {
+            model: Pondok,
+            include: [
+              {
+                model: Masterpondok,
+              },
+            ],
+          },
+        ],
       });
 
       res.status(200).json({ data: newData });
@@ -360,7 +370,17 @@ class UserController {
         where: {
           email: req.body.email,
         },
-        include: [{ all: true }],
+        include: [
+          { all: true },
+          {
+            model: Pondok,
+            include: [
+              {
+                model: Masterpondok,
+              },
+            ],
+          },
+        ],
       });
       const match = await bcrypt.compare(req.body.password, user[0].password);
       if (match) {
@@ -370,7 +390,7 @@ class UserController {
         const role = user[0].roleId;
         const roleName = user[0].Role.name;
         const photo = user[0].photo;
-        const logotahfidz = user[0].Pondok.logo;
+        const logotahfidz = user[0].Pondok.Masterpondok.logo;
         const pondokId = user[0].pondokId;
         const masterpondokId = user[0].Pondok.masterpondokId;
         const accessToken = jwt.sign(
