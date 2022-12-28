@@ -69,6 +69,8 @@ class PondokController {
   static async createPondok(req, res) {
     try {
       const { files, fields } = req.fileAttrb;
+
+      console.log("masuksini");
       const payload = {
         id: uuid.v4(),
         name: fields[0].value,
@@ -77,8 +79,8 @@ class PondokController {
         telephone: fields[3].value,
         chief: fields[4].value,
         masterpondokId: fields[5].value,
-        logo: files[0].file.newFilename,
-        photo: files[1].file.newFilename,
+        // logo: files[0].file.newFilename,
+        photo: files[0].file.newFilename,
       };
 
       const newData = await Pondok.create(payload);
