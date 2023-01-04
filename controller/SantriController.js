@@ -46,8 +46,6 @@ class SantriController {
         };
         databaru.push(element);
       }
-
-      console.log(databaru);
       res.status(200).json({ data: newData });
     } catch (error) {
       return res.status(400).json({ data: "Data tidak ditemukan" });
@@ -72,8 +70,6 @@ class SantriController {
         };
         databaru.push(element);
       }
-
-      console.log(databaru);
       res.status(200).json({ data: databaru });
     } catch (error) {
       return res.status(400).json({ data: "Data tidak ditemukan" });
@@ -314,8 +310,6 @@ class SantriController {
       const payload = {
         UserId: userId,
       };
-
-      console.log(payload);
 
       const newData = await Santri.update(payload, {
         returning: true,

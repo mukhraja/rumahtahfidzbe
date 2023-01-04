@@ -52,7 +52,7 @@ module.exports = {
           key: "id",
         },
         onUpdate: "cascade",
-        onDelete: "set null",
+        onDelete: "cascade",
       },
       userId: {
         type: Sequelize.STRING,
