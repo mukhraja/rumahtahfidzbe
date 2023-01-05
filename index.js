@@ -13,7 +13,7 @@ const app = express();
 
 const PORT = 3000;
 
-app.use(cors({ origin: "https://pondoktahfidzquran.my.id" }));
+app.use(cors({ origin: "*" }));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
