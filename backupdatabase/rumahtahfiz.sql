@@ -7,11 +7,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Alqurangurus
+# SCHEMA DUMP FOR TABLE: alqurangurus
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Alqurangurus`;
-CREATE TABLE `Alqurangurus` (
+DROP TABLE IF EXISTS `alqurangurus`;
+CREATE TABLE `alqurangurus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `juz` varchar(255) DEFAULT NULL,
   `surah` varchar(255) DEFAULT NULL,
@@ -24,15 +24,15 @@ CREATE TABLE `Alqurangurus` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `guruId` (`guruId`),
-  CONSTRAINT `Alqurangurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `Gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `alqurangurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Alquransantris
+# SCHEMA DUMP FOR TABLE: alquransantris
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Alquransantris`;
-CREATE TABLE `Alquransantris` (
+DROP TABLE IF EXISTS `alquransantris`;
+CREATE TABLE `alquransantris` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `juz` varchar(255) DEFAULT NULL,
   `surah` varchar(255) DEFAULT NULL,
@@ -45,18 +45,18 @@ CREATE TABLE `Alquransantris` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `santriId` (`santriId`),
-  CONSTRAINT `Alquransantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `Santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `alquransantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 35 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Gurus
+# SCHEMA DUMP FOR TABLE: gurus
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Gurus`;
-CREATE TABLE `Gurus` (
+DROP TABLE IF EXISTS `gurus`;
+CREATE TABLE `gurus` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `niu` varchar(255) DEFAULT NULL,
+  `niu` varchar(255) NOT NULL,
   `tempat` varchar(255) DEFAULT NULL,
   `datebirth` datetime DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
@@ -64,23 +64,24 @@ CREATE TABLE `Gurus` (
   `address` varchar(255) DEFAULT NULL,
   `ayah` varchar(255) DEFAULT NULL,
   `ibu` varchar(255) DEFAULT NULL,
-  `mulai_masuk` varchar(255) DEFAULT NULL,
-  `mulai_vakum` varchar(255) DEFAULT NULL,
+  `mulai_masuk` datetime DEFAULT NULL,
+  `mulai_vakum` datetime DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `pondokId` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `niu` (`niu`),
   KEY `pondokId` (`pondokId`),
-  CONSTRAINT `Gurus_ibfk_1` FOREIGN KEY (`pondokId`) REFERENCES `Pondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `gurus_ibfk_1` FOREIGN KEY (`pondokId`) REFERENCES `pondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Iqrogurus
+# SCHEMA DUMP FOR TABLE: iqrogurus
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Iqrogurus`;
-CREATE TABLE `Iqrogurus` (
+DROP TABLE IF EXISTS `iqrogurus`;
+CREATE TABLE `iqrogurus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `halaman` varchar(255) DEFAULT NULL,
@@ -91,15 +92,15 @@ CREATE TABLE `Iqrogurus` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `guruId` (`guruId`),
-  CONSTRAINT `Iqrogurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `Gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `iqrogurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 15 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Iqrosantris
+# SCHEMA DUMP FOR TABLE: iqrosantris
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Iqrosantris`;
-CREATE TABLE `Iqrosantris` (
+DROP TABLE IF EXISTS `iqrosantris`;
+CREATE TABLE `iqrosantris` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `halaman` varchar(255) DEFAULT NULL,
@@ -110,18 +111,18 @@ CREATE TABLE `Iqrosantris` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `santriId` (`santriId`),
-  CONSTRAINT `Iqrosantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `Santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `iqrosantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 47 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Masterpondoks
+# SCHEMA DUMP FOR TABLE: masterpondoks
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Masterpondoks`;
-CREATE TABLE `Masterpondoks` (
+DROP TABLE IF EXISTS `masterpondoks`;
+CREATE TABLE `masterpondoks` (
   `id` varchar(255) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `nit` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `nit` varchar(255) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `telephone` varchar(255) DEFAULT NULL,
   `chief` varchar(255) DEFAULT NULL,
@@ -129,18 +130,20 @@ CREATE TABLE `Masterpondoks` (
   `photo` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `nit` (`nit`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Pondoks
+# SCHEMA DUMP FOR TABLE: pondoks
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Pondoks`;
-CREATE TABLE `Pondoks` (
+DROP TABLE IF EXISTS `pondoks`;
+CREATE TABLE `pondoks` (
   `id` varchar(255) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `nit` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `nit` varchar(255) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `telephone` varchar(255) DEFAULT NULL,
   `chief` varchar(255) DEFAULT NULL,
@@ -150,16 +153,18 @@ CREATE TABLE `Pondoks` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `nit` (`nit`),
   KEY `masterpondokId` (`masterpondokId`),
-  CONSTRAINT `Pondoks_ibfk_1` FOREIGN KEY (`masterpondokId`) REFERENCES `Masterpondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `pondoks_ibfk_1` FOREIGN KEY (`masterpondokId`) REFERENCES `masterpondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Roles
+# SCHEMA DUMP FOR TABLE: roles
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Roles`;
-CREATE TABLE `Roles` (
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE `roles` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
@@ -168,14 +173,14 @@ CREATE TABLE `Roles` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Santris
+# SCHEMA DUMP FOR TABLE: santris
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Santris`;
-CREATE TABLE `Santris` (
+DROP TABLE IF EXISTS `santris`;
+CREATE TABLE `santris` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `nis` varchar(255) DEFAULT NULL,
+  `nis` varchar(255) NOT NULL,
   `datebirth` datetime DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
   `tempat` varchar(255) DEFAULT NULL,
@@ -187,32 +192,38 @@ CREATE TABLE `Santris` (
   `mulai_masuk` datetime DEFAULT NULL,
   `mulai_vakum` datetime DEFAULT NULL,
   `pondokId` varchar(255) DEFAULT NULL,
+  `userId` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `nis` (`nis`),
   KEY `pondokId` (`pondokId`),
-  CONSTRAINT `Santris_ibfk_1` FOREIGN KEY (`pondokId`) REFERENCES `Pondoks` (`id`) ON DELETE
+  KEY `userId` (`userId`),
+  CONSTRAINT `santris_ibfk_1` FOREIGN KEY (`pondokId`) REFERENCES `pondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `santris_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE
   SET
-  NULL ON UPDATE CASCADE
+  NULL ON UPDATE
+  SET
+  NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: SequelizeMeta
+# SCHEMA DUMP FOR TABLE: sequelizemeta
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SequelizeMeta`;
-CREATE TABLE `SequelizeMeta` (
+DROP TABLE IF EXISTS `sequelizemeta`;
+CREATE TABLE `sequelizemeta` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`name`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Surahpendekgurus
+# SCHEMA DUMP FOR TABLE: surahpendekgurus
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Surahpendekgurus`;
-CREATE TABLE `Surahpendekgurus` (
+DROP TABLE IF EXISTS `surahpendekgurus`;
+CREATE TABLE `surahpendekgurus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `tgl_selesai` datetime DEFAULT NULL,
@@ -222,15 +233,15 @@ CREATE TABLE `Surahpendekgurus` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `guruId` (`guruId`),
-  CONSTRAINT `Surahpendekgurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `Gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `surahpendekgurus_ibfk_1` FOREIGN KEY (`guruId`) REFERENCES `gurus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Surahpendeksantris
+# SCHEMA DUMP FOR TABLE: surahpendeksantris
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `Surahpendeksantris`;
-CREATE TABLE `Surahpendeksantris` (
+DROP TABLE IF EXISTS `surahpendeksantris`;
+CREATE TABLE `surahpendeksantris` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `tgl_selesai` datetime DEFAULT NULL,
@@ -240,33 +251,19 @@ CREATE TABLE `Surahpendeksantris` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `santriId` (`santriId`),
-  CONSTRAINT `Surahpendeksantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `Santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `surahpendeksantris_ibfk_1` FOREIGN KEY (`santriId`) REFERENCES `santris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 40 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: UserSantris
+# SCHEMA DUMP FOR TABLE: users
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `UserSantris`;
-CREATE TABLE `UserSantris` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` varchar(255) DEFAULT NULL,
-  `SantriId` varchar(255) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
-
-# ------------------------------------------------------------
-# SCHEMA DUMP FOR TABLE: Users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `Users`;
-CREATE TABLE `Users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `age` varchar(255) DEFAULT NULL,
   `datebirth` datetime DEFAULT NULL,
@@ -279,18 +276,33 @@ CREATE TABLE `Users` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
   KEY `roleId` (`roleId`),
   KEY `pondokId` (`pondokId`),
-  CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `Roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `Users_ibfk_2` FOREIGN KEY (`pondokId`) REFERENCES `Pondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`pondokId`) REFERENCES `pondoks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Alqurangurus
+# SCHEMA DUMP FOR TABLE: usersantris
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `usersantris`;
+CREATE TABLE `usersantris` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` varchar(255) DEFAULT NULL,
+  `SantriId` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+# ------------------------------------------------------------
+# DATA DUMP FOR TABLE: alqurangurus
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Alqurangurus` (
+  `alqurangurus` (
     `id`,
     `juz`,
     `surah`,
@@ -309,14 +321,14 @@ VALUES
     'Al maidah',
     NULL,
     '14',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alqurangurus` (
+  `alqurangurus` (
     `id`,
     `juz`,
     `surah`,
@@ -335,14 +347,14 @@ VALUES
     'Al Baqarah',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alqurangurus` (
+  `alqurangurus` (
     `id`,
     `juz`,
     `surah`,
@@ -361,14 +373,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alqurangurus` (
+  `alqurangurus` (
     `id`,
     `juz`,
     `surah`,
@@ -387,14 +399,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '245d57c6-0076-44ea-9876-dd2d3da50465',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alqurangurus` (
+  `alqurangurus` (
     `id`,
     `juz`,
     `surah`,
@@ -413,19 +425,19 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '245d57c6-0076-44ea-9876-dd2d3da50465',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Alquransantris
+# DATA DUMP FOR TABLE: alquransantris
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -444,14 +456,14 @@ VALUES
     'Al maidah',
     NULL,
     '14',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -470,14 +482,14 @@ VALUES
     'Al Baqarah',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -496,14 +508,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -522,14 +534,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -548,14 +560,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -574,14 +586,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -600,14 +612,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -626,14 +638,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -652,14 +664,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -678,14 +690,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -704,14 +716,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -730,14 +742,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -756,14 +768,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -782,14 +794,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -808,14 +820,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -834,14 +846,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -860,14 +872,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -886,14 +898,14 @@ VALUES
     'An Nasr',
     NULL,
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b7',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -912,14 +924,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b7',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -938,14 +950,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b7',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -964,14 +976,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -990,14 +1002,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1016,14 +1028,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1042,14 +1054,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1068,14 +1080,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c7',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1094,14 +1106,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c7',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1120,14 +1132,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1146,14 +1158,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1172,14 +1184,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1198,14 +1210,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1224,14 +1236,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1250,14 +1262,14 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1276,14 +1288,14 @@ VALUES
     'An Naba',
     NULL,
     '22',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Alquransantris` (
+  `alquransantris` (
     `id`,
     `juz`,
     `surah`,
@@ -1302,19 +1314,19 @@ VALUES
     'Al-Kafirun',
     NULL,
     '90',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Gurus
+# DATA DUMP FOR TABLE: gurus
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1338,21 +1350,21 @@ VALUES
     'Kakak tua',
     'RTU0003',
     'Padang',
-    '2022-12-09 00:00:00',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
-    '9c7a60b664edd14cb877efa02.png',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
+    'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-10 01:57:23'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1374,23 +1386,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50457',
     'cendrawasih',
-    'RTU0003',
+    'RTU0004',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1412,23 +1424,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50458',
     'kutilang',
-    'RTU0003',
+    'RTU0005',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1450,23 +1462,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50459',
     'pipit',
-    'RTU0003',
+    'RTU0006',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1488,23 +1500,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50460',
     'Adriansyah',
-    'RTU0001',
+    'RTU0007',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1526,23 +1538,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50461',
     'Putra Dwa',
-    'RTU0002',
+    'RTU0008',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1564,23 +1576,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50462',
     'Candra Dimuka',
-    'RTU0002',
+    'RTU0009',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1602,23 +1614,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50463',
     'Syailendra',
-    'RTU0003',
+    'RTU0010',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1640,23 +1652,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50464',
     'Sulaiman',
-    'RTU0004',
+    'RTU0011',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1678,23 +1690,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50465',
     'Aliansyah',
-    'RTU0005',
+    'RTU0012',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1716,23 +1728,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50466',
     'Batara Dwi',
-    'RTU0006',
+    'RTU0013',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1754,23 +1766,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50467',
     'Mahduf Munir',
-    'RTU0006',
+    'RTU0014',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1792,23 +1804,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50468',
     'Hola Kasih',
-    'RTU0007',
+    'RTU0015',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1830,23 +1842,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50469',
     'Dwi hasanaha',
-    'RTU0009',
+    'RTU0017',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1868,23 +1880,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50470',
     'Yansana alika',
-    'RTU0010',
+    'RTU0018',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1906,23 +1918,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50471',
     'Merak',
-    'RTU0010',
+    'RTU0019',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1944,23 +1956,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50472',
     'Camar',
-    'RTU0010',
+    'RTU0020',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -1982,23 +1994,23 @@ VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50473',
     'Wasamanda',
-    'RTU0010',
+    'RTU0021',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Gurus` (
+  `gurus` (
     `id`,
     `name`,
     `niu`,
@@ -2019,29 +2031,29 @@ INSERT INTO
 VALUES
   (
     '245d57c6-0076-44ea-9876-dd2d3da50480',
-    'Dwi Asmarani',
-    'RTU0008',
+    'Mutiara',
+    'RTU0016',
     'Padang',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     '082177751041',
     'Jl. Rasuna Said No.82, Rimbo Kaluang, Kec. Padang Bar., Kota Padang, Sumatera Barat',
     'Budi Santoso',
     'Sumarni',
-    '2022-08-08',
-    '2023-10-10',
+    '2022-08-08 00:00:00',
+    '2023-10-10 00:00:00',
     'aji.jpg',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Iqrogurus
+# DATA DUMP FOR TABLE: iqrogurus
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2056,14 +2068,14 @@ VALUES
     1,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2078,14 +2090,14 @@ VALUES
     2,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2100,14 +2112,14 @@ VALUES
     3,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2122,14 +2134,14 @@ VALUES
     4,
     'IQRO 2',
     '12',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2144,14 +2156,14 @@ VALUES
     5,
     'IQRO 2',
     '17',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2166,14 +2178,14 @@ VALUES
     6,
     'IQRO 2',
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2188,14 +2200,14 @@ VALUES
     7,
     'IQRO 3',
     '21',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2210,14 +2222,14 @@ VALUES
     8,
     'IQRO 3',
     '29',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50462',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2232,14 +2244,14 @@ VALUES
     9,
     'IQRO 1',
     '5',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2254,14 +2266,14 @@ VALUES
     10,
     'IQRO 1',
     '8',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2276,14 +2288,14 @@ VALUES
     11,
     'IQRO 1',
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2298,14 +2310,14 @@ VALUES
     12,
     'IQRO 2',
     '28',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2320,14 +2332,14 @@ VALUES
     13,
     'IQRO 2',
     '30',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrogurus` (
+  `iqrogurus` (
     `id`,
     `name`,
     `halaman`,
@@ -2342,19 +2354,19 @@ VALUES
     14,
     'IQRO 2',
     '35',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Iqrosantris
+# DATA DUMP FOR TABLE: iqrosantris
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2369,14 +2381,14 @@ VALUES
     1,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2391,14 +2403,14 @@ VALUES
     2,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2413,14 +2425,14 @@ VALUES
     3,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2435,14 +2447,14 @@ VALUES
     4,
     'IQRO 2',
     '12',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2457,14 +2469,14 @@ VALUES
     5,
     'IQRO 2',
     '17',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2479,14 +2491,14 @@ VALUES
     6,
     'IQRO 2',
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2501,14 +2513,14 @@ VALUES
     7,
     'IQRO 3',
     '21',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2523,14 +2535,14 @@ VALUES
     8,
     'IQRO 3',
     '29',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2545,14 +2557,14 @@ VALUES
     9,
     'IQRO 1',
     '5',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2567,14 +2579,14 @@ VALUES
     10,
     'IQRO 1',
     '8',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2589,14 +2601,14 @@ VALUES
     11,
     'IQRO 1',
     '20',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2611,14 +2623,14 @@ VALUES
     12,
     'IQRO 2',
     '28',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas lanjut',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2633,14 +2645,14 @@ VALUES
     13,
     'IQRO 2',
     '30',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2655,14 +2667,14 @@ VALUES
     14,
     'IQRO 2',
     '35',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2677,14 +2689,14 @@ VALUES
     15,
     'IQRO 2',
     '36',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2699,14 +2711,14 @@ VALUES
     16,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2721,14 +2733,14 @@ VALUES
     17,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2743,14 +2755,14 @@ VALUES
     18,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2765,14 +2777,14 @@ VALUES
     19,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2787,14 +2799,14 @@ VALUES
     20,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2809,14 +2821,14 @@ VALUES
     21,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2831,14 +2843,14 @@ VALUES
     22,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2853,14 +2865,14 @@ VALUES
     23,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2875,14 +2887,14 @@ VALUES
     24,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2897,14 +2909,14 @@ VALUES
     25,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2919,14 +2931,14 @@ VALUES
     26,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2941,14 +2953,14 @@ VALUES
     27,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2963,14 +2975,14 @@ VALUES
     28,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -2985,14 +2997,14 @@ VALUES
     29,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3007,14 +3019,14 @@ VALUES
     30,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c10',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3029,14 +3041,14 @@ VALUES
     31,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c10',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3051,14 +3063,14 @@ VALUES
     32,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c10',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3073,14 +3085,14 @@ VALUES
     33,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3095,14 +3107,14 @@ VALUES
     34,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3117,14 +3129,14 @@ VALUES
     35,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3139,14 +3151,14 @@ VALUES
     36,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3161,14 +3173,14 @@ VALUES
     37,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3183,14 +3195,14 @@ VALUES
     38,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3205,14 +3217,14 @@ VALUES
     39,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3227,14 +3239,14 @@ VALUES
     40,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3249,14 +3261,14 @@ VALUES
     41,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3271,14 +3283,14 @@ VALUES
     42,
     'IQRO 1',
     '3',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3293,14 +3305,14 @@ VALUES
     43,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3315,14 +3327,14 @@ VALUES
     44,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3337,14 +3349,14 @@ VALUES
     45,
     'IQRO 1',
     '6',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Tuntas',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Iqrosantris` (
+  `iqrosantris` (
     `id`,
     `name`,
     `halaman`,
@@ -3359,19 +3371,19 @@ VALUES
     46,
     'IQRO 1',
     '10',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Masterpondoks
+# DATA DUMP FOR TABLE: masterpondoks
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Masterpondoks` (
+  `masterpondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3393,11 +3405,11 @@ VALUES
     'Ustad Dian',
     '',
     'logo.png',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Masterpondoks` (
+  `masterpondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3419,11 +3431,11 @@ VALUES
     '',
     '',
     'logoadmin.png',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Masterpondoks` (
+  `masterpondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3445,11 +3457,11 @@ VALUES
     'Ustad Adri',
     '',
     'logo.png',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Masterpondoks` (
+  `masterpondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3471,16 +3483,16 @@ VALUES
     'Ustad Yiansyah',
     '',
     'logo.png',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Pondoks
+# DATA DUMP FOR TABLE: pondoks
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3497,18 +3509,18 @@ VALUES
   (
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
     'TAZKIYAHCABANG3',
-    'RTS0001',
+    'RTS0003',
     'Jalan Padang Salam No.285',
     '08218233445',
     'Ustad Dian',
     '',
     'logo.png',
     '96f95aea-ef38-4623-82af-979c383bbb02',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3525,18 +3537,18 @@ VALUES
   (
     '96f95aea-ef38-4623-82af-979c383bbb35',
     'ADMIN',
-    'RTS0000A',
-    'asdasd',
-    '123131',
-    'asdad',
-    'c0e73dcc50800f5525b313e04.png',
-    'c0e73dcc50800f5525b313e05.png',
+    'RTS0000',
+    'JALAN PADANG',
+    '08217772121',
+    'Ust Adri',
+    '',
+    'logoadmin.png',
     '96f95aea-ef38-4623-82af-979c383bbb01',
-    '2022-12-09 16:17:39',
-    '2022-12-10 04:51:11'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3553,18 +3565,18 @@ VALUES
   (
     '96f95aea-ef38-4623-82af-979c383bbb36',
     'TAZKIYAHCABANG1',
-    'RTS0000',
+    'RTS0001',
     '',
     '',
     '',
     '',
     'logoadmin.png',
     '96f95aea-ef38-4623-82af-979c383bbb02',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3581,18 +3593,18 @@ VALUES
   (
     '96f95aea-ef38-4623-82af-979c383bbb37',
     'TAZKIYAHCABANG2',
-    'RTS0020',
+    'RTS0002',
     'Jalan Padang Salam No.285',
     '08218233445',
     'Ustad Adri',
-    '43f83ea61807be9d00dc6a500.png',
-    '43f83ea61807be9d00dc6a501.png',
+    '',
+    'logo.png',
     '96f95aea-ef38-4623-82af-979c383bbb02',
-    '2022-12-09 16:17:39',
-    '2022-12-09 17:08:38'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3609,18 +3621,18 @@ VALUES
   (
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
     'HIKMAHCABANG1',
-    'RTS0002',
+    'RTS0004',
     'Jalan Padang Salam No.285',
     '08218233445',
     'Ustad Yiansyah',
     '',
     'logo.png',
     '5a7bee8c-3ac3-4542-b792-5fe780607703',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Pondoks` (
+  `pondoks` (
     `id`,
     `name`,
     `nit`,
@@ -3637,64 +3649,64 @@ VALUES
   (
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
     'HIKMAHCABANG2',
-    'RTS0003',
+    'RTS0005',
     'Jalan Padang Salam No.285',
     '08218233445',
     'Ustad Yiansyah',
     '',
     'logo.png',
     '5a7bee8c-3ac3-4542-b792-5fe780607703',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Roles
+# DATA DUMP FOR TABLE: roles
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Roles` (`id`, `name`, `createdAt`, `updatedAt`)
+  `roles` (`id`, `name`, `createdAt`, `updatedAt`)
 VALUES
   (
     '1a2832f9-ceb7-4ff9-930a-af176c88dcc5',
     'ortu',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Roles` (`id`, `name`, `createdAt`, `updatedAt`)
+  `roles` (`id`, `name`, `createdAt`, `updatedAt`)
 VALUES
   (
     '1b864518-299d-469c-b270-4d4b9d5b120f',
     'donatur',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Roles` (`id`, `name`, `createdAt`, `updatedAt`)
+  `roles` (`id`, `name`, `createdAt`, `updatedAt`)
 VALUES
   (
     '8b273d68-fe09-422d-a660-af3d8312f883',
     'Master Admin',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Roles` (`id`, `name`, `createdAt`, `updatedAt`)
+  `roles` (`id`, `name`, `createdAt`, `updatedAt`)
 VALUES
   (
     '8b273d68-fe09-422d-a660-af3d8312f884',
     'admin',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Santris
+# DATA DUMP FOR TABLE: santris
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3709,6 +3721,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3717,7 +3730,7 @@ VALUES
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
     'Aji Setiaji',
     '20220907',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3725,14 +3738,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '8ce3ed88-34e4-4fb2-baa7-26b6151a43fc',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3747,6 +3761,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3754,8 +3769,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
     'Yuliana Safiri',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220908',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3763,14 +3778,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '8ce3ed88-34e4-4fb2-baa7-26b6151a43fc',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3785,6 +3801,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3792,8 +3809,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
     'Muhammad Panji Kurniawan',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220909',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3801,14 +3818,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3042',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3823,6 +3841,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3830,8 +3849,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b2',
     'Marniati',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220910',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3839,14 +3858,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3042',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3861,6 +3881,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3868,8 +3889,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
     'Mahessa',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220911',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3877,14 +3898,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3042',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3899,6 +3921,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3906,8 +3929,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
     'Irfan',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220912',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3915,14 +3938,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3045',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3937,6 +3961,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3944,8 +3969,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b5',
     'Fadlan',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220913',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3953,14 +3978,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3045',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -3975,6 +4001,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -3982,8 +4009,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b6',
     'Nizar',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220914',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -3991,14 +4018,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3048',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4013,6 +4041,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4020,8 +4049,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b7',
     'Ilham',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220915',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4029,14 +4058,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '5a7bee8c-3ac3-4542-b792-5fe7806077b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '1c7258f8-0ac0-4c36-aba2-94ba3f4f3048',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4051,6 +4081,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4058,8 +4089,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b8',
     'Sabil',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220916',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4067,14 +4098,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4089,6 +4121,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4096,8 +4129,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b9',
     'MitaZu',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220917',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4105,14 +4138,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4127,6 +4161,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4134,8 +4169,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c10',
     'Mangga',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220926',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4143,14 +4178,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4165,6 +4201,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4172,8 +4209,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
     'Manggis',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220927',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4181,14 +4218,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4203,6 +4241,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4210,8 +4249,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c12',
     'Anggur',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220928',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4219,14 +4258,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4241,6 +4281,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4248,8 +4289,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
     'Nangka',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220929',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4257,14 +4298,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4279,6 +4321,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4286,8 +4329,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
     'Semangka',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220930',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4295,14 +4338,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4317,6 +4361,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4324,8 +4369,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c15',
     'Durian',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220931',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4333,14 +4378,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4355,6 +4401,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4362,8 +4409,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c16',
     'Merkisa',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220932',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4371,14 +4418,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac965',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4393,6 +4441,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4400,8 +4449,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c2',
     'Ulfa',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220918',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4409,14 +4458,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4431,6 +4481,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4438,8 +4489,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
     'Nukhi',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220919',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4447,14 +4498,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4469,6 +4521,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4476,8 +4529,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
     'Elfira',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220920',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4485,14 +4538,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4507,6 +4561,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4514,8 +4569,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
     'Kangkung',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220921',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4523,14 +4578,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4545,6 +4601,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4552,8 +4609,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
     'Bayam',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220922',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4561,14 +4618,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4583,6 +4641,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4590,8 +4649,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c7',
     'Singkong',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220923',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4599,14 +4658,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4621,6 +4681,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4628,8 +4689,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c8',
     'Wortel',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220924',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4637,14 +4698,15 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Santris` (
+  `santris` (
     `id`,
     `name`,
     `nis`,
@@ -4659,6 +4721,7 @@ INSERT INTO
     `mulai_masuk`,
     `mulai_vakum`,
     `pondokId`,
+    `userId`,
     `createdAt`,
     `updatedAt`
   )
@@ -4666,8 +4729,8 @@ VALUES
   (
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c9',
     'Apel',
-    '20220907',
-    '2022-12-09 16:17:40',
+    '20220925',
+    '2023-01-04 12:44:23',
     'Pria',
     'Padang',
     'Jalan Samiban Ayam',
@@ -4675,76 +4738,77 @@ VALUES
     'Budi Darma Putra',
     'Maryam',
     'ajisetiaji.jpg',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    NULL,
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: SequelizeMeta
+# DATA DUMP FOR TABLE: sequelizemeta
 # ------------------------------------------------------------
 
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220902092156-create-roles.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220902092158-create-masterpondok.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220902092159-create-pondok.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220903125150-create-users.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904082542-create-santri.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904092536-create-guru.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904093926-create-iqrosantri.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904093927-create-iqroguru.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904094614-create-surahpendekguru.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904094614-create-surahpendeksantri.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904094805-create-alquransantri.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220904094806-create-alquranguru.js');
 INSERT INTO
-  `SequelizeMeta` (`name`)
+  `sequelizemeta` (`name`)
 VALUES
   ('20220905155750-create-user-santri.js');
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Surahpendekgurus
+# DATA DUMP FOR TABLE: surahpendekgurus
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4757,14 +4821,14 @@ VALUES
   (
     1,
     'An Naba’',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50465',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4777,14 +4841,14 @@ VALUES
   (
     2,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50465',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4797,14 +4861,14 @@ VALUES
   (
     3,
     'Al Lahab',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50465',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4817,14 +4881,14 @@ VALUES
   (
     4,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4837,14 +4901,14 @@ VALUES
   (
     5,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendekgurus` (
+  `surahpendekgurus` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4857,19 +4921,19 @@ VALUES
   (
     6,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '245d57c6-0076-44ea-9876-dd2d3da50466',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Surahpendeksantris
+# DATA DUMP FOR TABLE: surahpendeksantris
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4882,14 +4946,14 @@ VALUES
   (
     1,
     'An Naba’',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4902,14 +4966,14 @@ VALUES
   (
     2,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4922,14 +4986,14 @@ VALUES
   (
     3,
     'Al Lahab',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a8',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4942,14 +5006,14 @@ VALUES
   (
     4,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4962,14 +5026,14 @@ VALUES
   (
     5,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -4982,14 +5046,14 @@ VALUES
   (
     6,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008a9',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5002,14 +5066,14 @@ VALUES
   (
     7,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5022,14 +5086,14 @@ VALUES
   (
     8,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5042,14 +5106,14 @@ VALUES
   (
     9,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b1',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5062,14 +5126,14 @@ VALUES
   (
     10,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5082,14 +5146,14 @@ VALUES
   (
     11,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5102,14 +5166,14 @@ VALUES
   (
     12,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5122,14 +5186,14 @@ VALUES
   (
     13,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5142,14 +5206,14 @@ VALUES
   (
     14,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5162,14 +5226,14 @@ VALUES
   (
     15,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008b4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5182,14 +5246,14 @@ VALUES
   (
     16,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5202,14 +5266,14 @@ VALUES
   (
     17,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5222,14 +5286,14 @@ VALUES
   (
     18,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c3',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5242,14 +5306,14 @@ VALUES
   (
     19,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5262,14 +5326,14 @@ VALUES
   (
     20,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5282,14 +5346,14 @@ VALUES
   (
     21,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c4',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5302,14 +5366,14 @@ VALUES
   (
     22,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5322,14 +5386,14 @@ VALUES
   (
     23,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c5',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5342,14 +5406,14 @@ VALUES
   (
     24,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5362,14 +5426,14 @@ VALUES
   (
     25,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5382,14 +5446,14 @@ VALUES
   (
     26,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5402,14 +5466,14 @@ VALUES
   (
     27,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c6',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5422,14 +5486,14 @@ VALUES
   (
     28,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5442,14 +5506,14 @@ VALUES
   (
     29,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5462,14 +5526,14 @@ VALUES
   (
     30,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c11',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5482,14 +5546,14 @@ VALUES
   (
     31,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c12',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5502,14 +5566,14 @@ VALUES
   (
     32,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c12',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5522,14 +5586,14 @@ VALUES
   (
     33,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c12',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5542,14 +5606,14 @@ VALUES
   (
     34,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5562,14 +5626,14 @@ VALUES
   (
     35,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5582,14 +5646,14 @@ VALUES
   (
     36,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c13',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5602,14 +5666,14 @@ VALUES
   (
     37,
     'Al Kautsar',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5622,14 +5686,14 @@ VALUES
   (
     38,
     'Al Ikhlash',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Surahpendeksantris` (
+  `surahpendeksantris` (
     `id`,
     `name`,
     `tgl_selesai`,
@@ -5642,24 +5706,19 @@ VALUES
   (
     39,
     'An Nazi’at',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     'selesai',
     '4aeb9b02-0ceb-4a52-9d55-38ad38f008c14',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 
 # ------------------------------------------------------------
-# DATA DUMP FOR TABLE: UserSantris
-# ------------------------------------------------------------
-
-
-# ------------------------------------------------------------
-# DATA DUMP FOR TABLE: Users
+# DATA DUMP FOR TABLE: users
 # ------------------------------------------------------------
 
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5680,22 +5739,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3039',
     'Master Admin',
-    '$2b$10$nAi2U996zcOTyWlWj8ciMOgZpjlfUQPF2ZhnsrUMvcD5r3HmixY2S',
+    '$2b$10$rbdLX7CfZ8axV6KuNww.I..20De5sIekrVxGoprRUVzmCyUAzRii2',
     'masteradmin@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:22',
     NULL,
     '082177751041',
     'adminprofile.png',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYzcyNThmOC0wYWMwLTRjMzYtYWJhMi05NGJhM2Y0ZjMwMzkiLCJuYW1lIjoiTWFzdGVyIEFkbWluIiwiZW1haWwiOiJtYXN0ZXJhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiOGIyNzNkNjgtZmUwOS00MjJkLWE2NjAtYWYzZDgzMTJmODgzIiwicGhvdG8iOiJhZG1pbnByb2ZpbGUucG5nIiwibG9nb3RhaGZpZHoiOiJjMGU3M2RjYzUwODAwZjU1MjViMzEzZTA0LnBuZyIsInJvbGVOYW1lIjoiTWFzdGVyIEFkbWluIiwiaWF0IjoxNjcwNjUwNTEzLCJleHAiOjE2NzA3MzY5MTN9.DbPf4cDoqdkGSK36yvAxWSTaOWqfujfnkZaUYAwq4dQ',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYzcyNThmOC0wYWMwLTRjMzYtYWJhMi05NGJhM2Y0ZjMwMzkiLCJuYW1lIjoiTWFzdGVyIEFkbWluIiwiZW1haWwiOiJtYXN0ZXJhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiOGIyNzNkNjgtZmUwOS00MjJkLWE2NjAtYWYzZDgzMTJmODgzIiwicGhvdG8iOiJhZG1pbnByb2ZpbGUucG5nIiwibG9nb3RhaGZpZHoiOiIiLCJyb2xlTmFtZSI6Ik1hc3RlciBBZG1pbiIsImlhdCI6MTY3MjgzNjM5NiwiZXhwIjoxNzA0MzcyMzk2fQ.mZHWDb0rUBkIMhp1n0yL2tfve9lnuE0WRsbY6n7wla4',
     '8b273d68-fe09-422d-a660-af3d8312f883',
     '96f95aea-ef38-4623-82af-979c383bbb35',
-    '2022-12-09 16:17:39',
-    '2022-12-10 05:35:13'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:46:36'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5716,22 +5775,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3040',
     'Admin',
-    '$2b$10$l.Iu0F.pjD9R0yJEgs6RKOC8SeOpnYTFNuDqapwRa2EtyJQKXy.AC',
+    '$2b$10$vqAiaU3WO9AMaOeFyuQR9.G.esv7lYpyjFT5O2qBiRjvgXFxNv6C6',
     'admin@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 00:00:00',
-    'null',
+    '2023-01-04 12:44:22',
+    NULL,
     '082177751041',
-    '43f83ea61807be9d00dc6a502.png',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYzcyNThmOC0wYWMwLTRjMzYtYWJhMi05NGJhM2Y0ZjMwNDAiLCJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiI4YjI3M2Q2OC1mZTA5LTQyMmQtYTY2MC1hZjNkODMxMmY4ODQiLCJwaG90byI6IjQzZjgzZWE2MTgwN2JlOWQwMGRjNmE1MDIucG5nIiwibG9nb3RhaGZpZHoiOiI0M2Y4M2VhNjE4MDdiZTlkMDBkYzZhNTAwLnBuZyIsInJvbGVOYW1lIjoiYWRtaW4iLCJpYXQiOjE2NzA2NTA0OTcsImV4cCI6MTY3MDczNjg5N30.VgFlMylUFe-LwUYCYyrI0u-FYXBjLNpsDAydgssWtn4',
+    'adminprofile.png',
+    NULL,
     '8b273d68-fe09-422d-a660-af3d8312f884',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:39',
-    '2022-12-10 05:34:57'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5752,22 +5811,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3041',
     'Admin2',
-    '$2b$10$Jeqd8t73oUSczMPgGLKZluRgooUiGT4O23qyYwoyMBB115ytOLqGO',
+    '$2b$10$Bc1y9WM7H3ORAfk9OVODeeIDd3wOt71iJoE3CKdJfeGof0gvg0L2O',
     'admin2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '8b273d68-fe09-422d-a660-af3d8312f884',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5788,22 +5847,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3042',
     'Orang Tua2',
-    '$2b$10$YRWwaXf93tvru8c7wZruU.EDiLBHTWdMaSH4gj21Bu8Tv/94WKQX.',
+    '$2b$10$qkrDRfS5IeMuBxvVcyd92uYtlbn857I7.Eypd8egRgF0/9jk14vtG',
     'ortu2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1a2832f9-ceb7-4ff9-930a-af176c88dcc5',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5823,23 +5882,23 @@ INSERT INTO
 VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3043',
-    'Donatur',
-    '$2b$10$UnpkiTs7dAUbLZgICHq..OOPeg5PBmjrCYxw9SZyxbudEZZ3fCOq2',
-    'donatur@gmail.com',
+    'Donatur2',
+    '$2b$10$StqhX14LgdO8TpbAJj085..p9lIAfl20SH0tICKCWLPDvD2VI9Vsi',
+    'donatur2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1b864518-299d-469c-b270-4d4b9d5b120f',
     '96f95aea-ef38-4623-82af-979c383bbb36',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5860,22 +5919,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3044',
     'Adminhikmah1',
-    '$2b$10$ZG80QCnRiu9s3tq6qpb/POAXDxJd6CVQUNx2RcrnSg/hhfTGjy/KK',
+    '$2b$10$a2RtUL.NxmKhq8QH55BkpOT5w9J3kCyUGJDDZNRQzexOep.1R7ZUW',
     'adminhikmah1@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '8b273d68-fe09-422d-a660-af3d8312f884',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5896,22 +5955,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3045',
     'Orang Tua Hikmah1',
-    '$2b$10$m4OKgvy9uqESnvMj9bMTQObzxEC6Neayatd3jUGI57Ez8nrCi4/t6',
+    '$2b$10$xYA16mPvmzYd.R521xhKUeyEoUNfsDZ.37NEtciyKEU7yoFq.Jyym',
     'ortuhikmah1@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1a2832f9-ceb7-4ff9-930a-af176c88dcc5',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5932,22 +5991,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3046',
     'Donatur hikmah 1',
-    '$2b$10$Es9ixHDoFZkI5kJbX6U/8uaQGuDxjAdZtJIfN2HuNWqgRs7hncF5C',
+    '$2b$10$Z5oSTfGeZxQxjrBS26Ffk.ijW7hOAE5/FAM3QxJ3z70dzGzCfQrVa',
     'donaturhikmah1@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1b864518-299d-469c-b270-4d4b9d5b120f',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -5968,22 +6027,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3047',
     'Adminhikmah2',
-    '$2b$10$dwCC3tjGobmsP3S2JdGcX.idJNoMDZ3h.vhUaq4sUfRhWglPU1sGi',
+    '$2b$10$vbp/dwKKPTrcfsE2UrCSHOW5Cr9lhn0GmG9kwd8ZDlgfCuZLRlHDy',
     'adminhikmah2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '8b273d68-fe09-422d-a660-af3d8312f884',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -6004,22 +6063,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3048',
     'Orang Tua Hikmah2',
-    '$2b$10$2Avz5tPnnfQf1yh44VRf8uuX1XNA1/BduEJYCcxRG/CmXKGyaVc52',
+    '$2b$10$1CaNye6Y3CdvC964o6bWEO/grr9s0C6PsSK.gJSmCaAP0YWHoa.Bi',
     'ortuhikmah2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1a2832f9-ceb7-4ff9-930a-af176c88dcc5',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -6040,22 +6099,22 @@ VALUES
   (
     '1c7258f8-0ac0-4c36-aba2-94ba3f4f3049',
     'Donatur hikmah 2',
-    '$2b$10$zy2ckXWtg99Sq.06zZLu8OtcnC4cBL1adpWZ0iiRdSmWT6239Goa6',
+    '$2b$10$LrMzkFf52BhoMnXPRElTX./PinxR7s8rLPlUqkz2UK7fYaQArx9ne',
     'donaturhikmah2@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:40',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1b864518-299d-469c-b270-4d4b9d5b120f',
     'e3028fca-6d4a-4c80-8e09-14d253dac964',
-    '2022-12-09 16:17:40',
-    '2022-12-09 16:17:40'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -6076,22 +6135,22 @@ VALUES
   (
     '7a8fd74d-3fe0-4b7b-8d77-1e8266983ade',
     'Donatur',
-    '$2b$10$12OPFSIHD9ytUZaqvdfteO8fR5zE3jwQw3kmf8xuS5pFIVbtM9wSS',
+    '$2b$10$O5.CmRKfSjORcXSEAlIjBuerLdlc51sXjxZRlkh0F9i4C0/SCCtUu',
     'donatur@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 16:17:39',
+    '2023-01-04 12:44:23',
     NULL,
     '082177751041',
     'adminprofile.png',
     NULL,
     '1b864518-299d-469c-b270-4d4b9d5b120f',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:39',
-    '2022-12-09 16:17:39'
+    '2023-01-04 12:44:23',
+    '2023-01-04 12:44:23'
   );
 INSERT INTO
-  `Users` (
+  `users` (
     `id`,
     `name`,
     `password`,
@@ -6112,20 +6171,25 @@ VALUES
   (
     '8ce3ed88-34e4-4fb2-baa7-26b6151a43fc',
     'Orang Tua',
-    '$2b$10$84FQBmkf/JQ.1EK4zH/aduZdzPY0c39QTy5tP0bfBNNwI7nWQog7S',
+    '$2b$10$160LfOFCtst4f8VTuPWyhuWM8uf0YYsEnYKpNKC5dInB3AwnFN4pW',
     'ortu@gmail.com',
     'Jalan Samiban Bayam Lorong Ayam',
     '24',
-    '2022-12-09 00:00:00',
-    'null',
+    '2023-01-04 12:44:22',
+    NULL,
     '082177751041',
-    '9c7a60b664edd14cb877efa03.png',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4Y2UzZWQ4OC0zNGU0LTRmYjItYmFhNy0yNmI2MTUxYTQzZmMiLCJuYW1lIjoiT3JhbmcgVHVhIiwiZW1haWwiOiJvcnR1QGdtYWlsLmNvbSIsInJvbGUiOiIxYTI4MzJmOS1jZWI3LTRmZjktOTMwYS1hZjE3NmM4OGRjYzUiLCJwaG90byI6IjljN2E2MGI2NjRlZGQxNGNiODc3ZWZhMDMucG5nIiwibG9nb3RhaGZpZHoiOiI0M2Y4M2VhNjE4MDdiZTlkMDBkYzZhNTAwLnBuZyIsInJvbGVOYW1lIjoib3J0dSIsImlhdCI6MTY3MDY1MDUwNywiZXhwIjoxNjcwNzM2OTA3fQ.zLpn1qyCUA0J4EToi8SkkgVTDYapv6_EA-KXKD5C-nc',
+    'adminprofile.png',
+    NULL,
     '1a2832f9-ceb7-4ff9-930a-af176c88dcc5',
     '96f95aea-ef38-4623-82af-979c383bbb37',
-    '2022-12-09 16:17:39',
-    '2022-12-10 05:35:07'
+    '2023-01-04 12:44:22',
+    '2023-01-04 12:44:22'
   );
+
+# ------------------------------------------------------------
+# DATA DUMP FOR TABLE: usersantris
+# ------------------------------------------------------------
+
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
