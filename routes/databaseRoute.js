@@ -1,5 +1,4 @@
 const { DatabaseController } = require("../controller");
-const multer = require("multer");
 
 const route = require("express").Router();
 
