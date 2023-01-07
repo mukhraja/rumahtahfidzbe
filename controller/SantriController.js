@@ -245,6 +245,7 @@ class SantriController {
       const {
         name,
         nis,
+        tempat,
         datebirth,
         gender,
         address,
@@ -260,6 +261,7 @@ class SantriController {
         const payload = {
           name,
           nis,
+          tempat,
           datebirth,
           gender,
           address,
@@ -281,6 +283,7 @@ class SantriController {
         const payload = {
           name,
           nis,
+          tempat,
           datebirth,
           gender,
           address,
