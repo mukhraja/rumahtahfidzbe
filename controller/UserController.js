@@ -396,12 +396,12 @@ class UserController {
         const accessToken = jwt.sign(
           { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "365d" }
+          { expiresIn: "1d" }
         );
         const refresh_token = jwt.sign(
           { userId, name, email, role, photo, logotahfidz, roleName },
           process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "365d" }
+          { expiresIn: "1d" }
         );
 
         const cek = await Users.update(
