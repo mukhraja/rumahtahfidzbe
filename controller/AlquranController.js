@@ -44,7 +44,7 @@ class AlquranController {
     try {
       const { masterpondokId } = req.params;
       const data = await sequelize.query(
-        `SELECT Santris.name as namasantri, Pondoks.id AS pondokId, Pondoks.name AS pondokName, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Alquransantris ORDER BY Alquransantris.id DESC LIMIT 18446744073709551615)AS test JOIN Santris ON Santris.id=test.santriId JOIN Pondoks ON Pondoks.id=Santris.pondokId WHERE Pondoks.masterpondokId = '${masterpondokId}' GROUP BY santriId`,
+        `SELECT Santris.name as namasantri,Santris.mulai_vakum, Pondoks.id AS pondokId, Pondoks.name AS pondokName, test.*, Pondoks.name as namapondok, Pondoks.id as pondokId FROM (SELECT * FROM Alquransantris ORDER BY Alquransantris.id DESC LIMIT 18446744073709551615)AS test JOIN Santris ON Santris.id=test.santriId JOIN Pondoks ON Pondoks.id=Santris.pondokId WHERE Pondoks.masterpondokId = '${masterpondokId}' GROUP BY santriId`,
         {
           model: Alquransantri,
           type: QueryTypes.SELECT,
