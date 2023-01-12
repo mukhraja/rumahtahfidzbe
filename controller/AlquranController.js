@@ -116,6 +116,7 @@ class AlquranController {
         ayat,
         halaman,
         tgl_selesai,
+        ket,
         santriId,
       };
 
