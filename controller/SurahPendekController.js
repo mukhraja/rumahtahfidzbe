@@ -137,11 +137,12 @@ class SurahPendekController {
 
   static async updateSurahpendek(req, res) {
     try {
-      const { name, tgl_selesai, santriId } = req.body;
+      const { name, tgl_selesai, ket, santriId } = req.body;
 
       const payload = {
         name,
         tgl_selesai,
+        ket,
         santriId,
       };
 

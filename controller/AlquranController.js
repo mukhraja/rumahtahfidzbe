@@ -107,7 +107,8 @@ class AlquranController {
 
   static async createAlquran(req, res) {
     try {
-      const { juz, surah, ayat, tgl_selesai, santriId, halaman } = req.body;
+      const { juz, surah, ayat, tgl_selesai, ket, santriId, halaman } =
+        req.body;
 
       const payload = {
         juz,

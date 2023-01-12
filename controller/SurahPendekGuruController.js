@@ -106,10 +106,11 @@ class SurahPendekGuruController {
 
   static async updateSurahpendek(req, res) {
     try {
-      const { name, tgl_selesai, guruId } = req.body;
+      const { name, tgl_selesai, ket, guruId } = req.body;
 
       const payload = {
         name,
+        ket,
         tgl_selesai,
         guruId,
       };
